@@ -1,0 +1,125 @@
+
+body {
+  background-color: #fff;
+}
+.container {
+  width: 550px;
+  height: 850px;
+  margin: 50px auto;
+  background-color: #539A46;
+  position: relative;
+}
+.line {
+  width: 550px;
+  height: 850px;
+  border: 3px solid #ffffff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.line::before {
+  border: 5px solid #539A46;
+  bottom: -9px;
+  content: "";
+  left: -9px;
+  position: absolute;
+  right: -9px;
+  top: -9px;
+}
+.half {
+  width: 550px;
+  height: 425px;
+  position: absolute;
+  left: 0;
+  border-bottom-color: #fff;
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  top: 0;
+  z-index: 200;
+}
+.panelty {
+  width: 220px;
+  height: 110px;
+  border: 3px solid #ffffff;
+  position: absolute;
+  z-index: 220;
+  background-color: #539A46;
+}
+.panelty.left {
+  left: 150px;
+  top: 3px;
+  border-top-color: transparent;
+  border-top-width: 0;
+}
+.panelty.left::after {
+  border: 3px solid #ffffff;
+  border-top-color: transparent;
+  border-top-width: 0;
+  bottom: 55px;
+  content: "";
+  left: 45px;
+  position: absolute;
+  right: 45px;
+  top: 0;
+}
+.panelty.right {
+  left: 150px;
+  bottom: 0;
+  border-bottom-color: transparent;
+  border-bottom-width: 0;
+}
+.panelty.right::after {
+  border: 3px solid #ffffff;
+  border-bottom-color: transparent;
+  border-bottom-width: 0;
+  bottom: 0;
+  content: "";
+  left: 45px;
+  position: absolute;
+  right: 45px;
+  top: 55px;
+}
+.center {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border: 3px solid #ffffff;
+  left: 193px;
+  top: 359px;
+  border-radius: 50%;
+}
+.center::after {
+  background-color: #fff;
+  border: 5px solid #fff;
+  bottom: 55px;
+  content: "";
+  left: 55px;
+  position: absolute;
+  right: 55px;
+  top: 55px;
+  border-radius: 50%;
+}
+.p-place {
+  border-radius: 50%;
+  width: 130px;
+  height: 150px;
+  position: absolute;
+  z-index: 210;
+  border: 3px solid transparent;
+}
+.p-place.left {
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+  top: 0;
+  left: 193px;
+}
+.p-place.right {
+  border-right-color: #fff;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  bottom: 0;
+  left: 193px;
+}
