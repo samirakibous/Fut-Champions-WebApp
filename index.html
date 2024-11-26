@@ -1,38 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="index.css" rel="stylesheet">
-    <title>pitch</title>
+    <meta name="description"
+        content="Build and manage your custom football team with dynamic formations, player stats, chemistry calculations, and more. An interactive Ultimate Team management app.">
+    <meta name="keywords"
+        content="football team, team management, player stats, chemistry calculation, formations, ultimate team, dynamic app">
+    <meta name="author" content="FI">
+    <title>Pitch</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="tailwind.js"></script>
 </head>
+
 <body>
-    <div class="partie1">
-        <label for="formation">Formation:</label>
-        <select id="formation">
-            <option>4-4-2</option>
-            <option>4-3-3</option>
-        </select>
-
-        <label for="title">Title:</label>
-        <input id="title" type="text" placeholder="Title for your squad">
+    <div class="s-container  ">
+        <!-- Partie 1 -->
+        <div class="partie1 flex flex-col lg:flex-row items-center gap-4 w-full lg:justify-between flex-wrap p-5">
+            <div>
+                <label for="formation" class="flex-shrink-0">Formation:</label>
+                <select id="formation" class="border border-gray-300 rounded p-2">
+                    <option>4-4-2</option>
+                    <option>4-3-3</option>
+                </select>
+            </div>
+            <div>
+                <label for="title" class="flex-shrink-0">Title:</label>
+                <input id="title" type="text" placeholder="Title for your squad" class="border border-gray-300 rounded p-2">
+            </div>
+            <button id="saveTitle" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Save Title
+            </button>
+            <div id="squadTitle"></div>
+        </div>
+        
+        
+        <div class="conteneur flex flex-col md:flex-row">
+            <!-- Terrain -->
+            <div class="terrain w-full md:w-6/12">
+                <img src="src/assets/img/1137.jpg" alt="Football Pitch" class="w-full px-5">
+            </div>
+        
+            <!-- Substitutes -->
+            <div class="restant bg-gray-200 w-full md:w-1/3 p-5 flex flex-col items-center">
+                <h2 class="text-center text-gray-700 mb-5">Joueurs de réserve</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Exemple de carte joueur -->
+                    <div class="cards grid grid-cols-3 p-7 gap-3">
+                        <div class="player_card relative">
+                            <img src="src/assets/img/badge_gold.webp" alt="">
+                            <div class="w-2/3 player_image absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                                style="top: 40%;">
+                                <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="">
+                                <div class="text-black text-center mt-5">
+                                    <strong>
+                                        <p>Messi</p>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ajoutez plus de cartes joueur ici -->
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
-    <div class="container">
-        <div class="line"></div>
-        <div class="half"></div>
-        <div class="panelty left"></div>
-        <div class="panelty right"></div>
-        <div class="p-spot left">&nbsp;</div>
-        <div class="p-spot right">&nbsp;</div>
-        <div class="center"></div>
-        <div class="p-place left"></div>
-        <div class="p-place right"></div>
-      </div>
     
-    </body>
-    </html>
+    <div id="players-list"></div>
 
+    <script src="script.js"></script>
+</body>
 
-    
-      
-    
+</html>
