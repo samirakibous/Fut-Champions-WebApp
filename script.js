@@ -455,7 +455,12 @@ const titre=document.getElementById('title');
 function afficherTitre(titleValue) {
   const titleElement = document.createElement('div');
   titleElement.innerHTML = `${titleValue}`;
-  titleContainer.innerHTML = '';
+  titleElement.style.color='white';
+  titleElement.style.fontSize ='24px';
+  titleElement.style.fontWeight='bold';
+  titleElement.style.fontFamily='Arial, sans-serif';
+  titleElement.style.padding='5px'
+  titleContainer.innerHTML='';
   titleContainer.appendChild(titleElement);
 }
 
@@ -480,3 +485,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
   
 //=============================================//
+// function changeFormation(event) {
+//   const formation = event.target.value;
+//   document.querySelectorAll('.player').forEach((player, index) => {
+//       // Adaptez les positions en fonction de la formation choisie
+//       if (formation === '442') {
+//           // Change positions for 4-4-2
+//           player.classList.add('top-[new%]', 'left-[new%]');
+//       }
+//   });
+// }
+
+  
+//=============================================//
+let addPlayerButtons = document.querySelectorAll('.butt');
+let playerForm = document.getElementById('player-form');
+let closeFormButton = document.getElementById('close-form');
+
+// Show the form when a button is clicked
+addPlayerButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    playerForm.classList.remove('hidden');  // Show the form
+  });
+});
+
+// Close the form when the close button is clicked
+closeFormButton.addEventListener('click', () => {
+  playerForm.classList.add('hidden');  // Hide the form
+});
+
+
+
+
+
+
+

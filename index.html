@@ -12,64 +12,248 @@
     <title>Pitch</title>
     <link rel="stylesheet" href="index.css">
     <script src="tailwind.js"></script>
+
 </head>
 
 <body>
-    <div class="s-container  ">
-        <!-- Partie 1 -->
-        <div class="partie1 flex flex-col lg:flex-row items-center gap-4 w-full lg:justify-between flex-wrap p-5">
-            <div>
-                <label for="formation" class="flex-shrink-0">Formation:</label>
-                <select id="formation" class="border border-gray-300 rounded p-2">
-                    <option>4-4-2</option>
-                    <option>4-3-3</option>
-                </select>
+
+    <div class="container bg-[#3b3b3b]">
+
+        <div class="s-container  ">
+            <header class="bg-black text-white p-4">
+                <div class="container mx-auto flex justify-between items-center">
+                    <h1 class="text-2xl font-bold">Ultimate Football Team</h1>
+
+                </div>
+            </header>
+
+            <!-- Partie 1 -->
+            <div class="partie1 flex flex-col lg:flex-row items-center gap-4 w-full lg:justify-between flex-wrap p-5">
+                <div>
+                    <label for="formation" class="flex-shrink-0 text-white font-bold ml-9">Formation:</label>
+                    <select id="formation" class=" border-[#696969] rounded  bg-[#696969] p-2 text-white font-serif">
+                        <option class="text-white font-serif">4-4-2</option>
+                        <option class="text-white font-serif">4-3-3</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="title" class="flex-shrink-0 text-white font-bold">Title:</label>
+                    <input id="title" type="text" placeholder="Title for your squad"
+                        class="border border-[#696969] rounded p-2 bg-[#696969]">
+                        <button id="saveTitle" class="bg-blue-500 text-white px-2 py-2 rounded-md hover:bg-blue-600">
+                            Save Title
+                        </button>
+                </div>
+                
+              
             </div>
-            <div>
-                <label for="title" class="flex-shrink-0">Title:</label>
-                <input id="title" type="text" placeholder="Title for your squad" class="border border-gray-300 rounded p-2">
-            </div>
-            <button id="saveTitle" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                Save Title
-            </button>
-            <div id="squadTitle"></div>
-        </div>
-        
-        
-        <div class="conteneur flex flex-col md:flex-row">
-            <!-- Terrain -->
-            <div class="terrain w-full md:w-6/12">
-                <img src="src/assets/img/1137.jpg" alt="Football Pitch" class="w-full px-5">
-            </div>
-        
-            <!-- Substitutes -->
-            <div class="restant bg-gray-200 w-full md:w-1/3 p-5 flex flex-col items-center">
-                <h2 class="text-center text-gray-700 mb-5">Joueurs de réserve</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <!-- Exemple de carte joueur -->
-                    <div class="cards grid grid-cols-3 p-7 gap-3">
-                        <div class="player_card relative">
-                            <img src="src/assets/img/badge_gold.webp" alt="">
-                            <div class="w-2/3 player_image absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                                style="top: 40%;">
-                                <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="">
-                                <div class="text-black text-center mt-5">
-                                    <strong>
-                                        <p>Messi</p>
-                                    </strong>
+
+
+            <div class="conteneur relative flex flex-col md:flex-row justify-around gap-10">
+                <!-- Terrain -->
+                <div class="terrain relative w-full md:w-6/12 ">
+                    <img src="src/assets/img/1137.jpg" alt="Football Pitch" class="w-full">
+
+                    <div id="squadTitle" class="absolute top-0"></div>
+                    <!-- Joueurs positionnés selon 4-3-3 -->
+
+                    <!------------------------------GK------------------------------->
+                    <div class="player absolute top-[85%] left-[45%] w-[14%] lg:w-[14%]">
+                        <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
+                            class="max-w-full max-h-full object-contain ">
+                        <button
+                            class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-blue-700 transition-colors "
+                            data-position="GK">
+                            <span class="text-lg">+</span>
+                        </button>
+                    </div>
+                    <!------------------------------LB------------------------------->
+                    <div class="player absolute top-[65%] left-[10%] w-[14%] lg:w-[14%]">
+                        <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
+                            class="max-w-full max-h-full object-contain ">
+                        <button
+                            class=" butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-blue-700 transition-colors"
+                            data-position="LB">
+                            <span class="text-lg">+</span>
+                        </button>
+                    </div>
+
+                    <!------------------------------CB------------------------------->
+                    <div class="player absolute top-[70%] left-[35%] w-[14%] lg:w-[14%]">
+                        <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
+                            class="max-w-full max-h-full object-contain ">
+                        <button
+                            class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-blue-700 transition-colors"
+                            data-position="CB">
+                            <span class="text-lg">+</span>
+                        </button>
+                    </div>
+                    <!------------------------------CB------------------------------->
+                    <div class="player absolute top-[70%] left-[55%] w-[14%] lg:w-[14%]">
+                        <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
+                            class="max-w-full max-h-full object-contain ">
+                        <button
+                            class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-blue-700 transition-colors"
+                            data-position="CB">
+                            <span class="text-lg">+</span>
+                        </button>
+                    </div>
+                    <!------------------------------RB------------------------------->
+                    <div class="player absolute top-[65%] left-[80%] w-[14%] lg:w-[14%]">
+                        <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
+                            class="max-w-full max-h-full object-contain ">
+                        <button
+                            class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-blue-700 transition-colors"
+                            data-position="RB">
+                            <span class="text-lg">+</span>
+                        </button>
+                    </div>
+                    <!------------------------------CM------------------------------->
+                    <div class="player absolute top-[45%] left-[20%] w-[14%] lg:w-[14%]">
+                        <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
+                            class="max-w-full max-h-full object-contain ">
+                        <button
+                            class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-blue-700 transition-colors"
+                            data-position="CM">
+                            <span class="text-lg">+</span>
+                        </button>
+                    </div>
+                    <!------------------------------CM------------------------------->
+                    <div class="player absolute top-[45%] left-[43%] w-[14%] lg:w-[14%]">
+                        <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
+                            class="max-w-full max-h-full object-contain ">
+                        <button
+                            class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-blue-700 transition-colors"
+                            data-position="CM">
+                            <span class="text-lg">+</span>
+                        </button>
+                    </div>
+                    <!------------------------------CM------------------------------->
+                    <div class="player absolute top-[45%] left-[70%] w-[14%] lg:w-[14%]">
+                        <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
+                            class="max-w-full max-h-full object-contain ">
+                        <button
+                            class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-blue-700 transition-colors"
+                            data-position="CM">
+                            <span class="text-lg">+</span>
+                        </button>
+                    </div>
+
+                    <!------------------------------LW------------------------------->
+
+                    <div class="player absolute top-[25%] left-[10%] w-[14%] lg:w-[14%]">
+                        <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
+                            class="max-w-full max-h-full object-contain ">
+                        <button
+                            class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-blue-700 transition-colors"
+                            data-position="LW">
+                            <span class="text-lg">+</span>
+                        </button>
+
+                    </div>
+
+                    <!------------------------------RW------------------------------->
+                    <div class="player absolute top-[25%] left-[80%] w-[14%] lg:w-[14%]">
+                        <img src="src/assets/img/badge_gold.webp" alt="Joueur RW"
+                            class="max-w-full max-h-full object-contain ">
+                        <button
+                            class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-blue-700 transition-colors"
+                            data-position="RW">
+                            <span class="text-lg">+</span>
+                        </button>
+                    </div>
+
+
+                    <!-------------------------test ST------------------------------->
+                    <div class="player absolute top-[10%] left-[45%] w-[14%] lg:w-[14%]">
+                        <div class="relative"></div>
+                        <img src="src/assets/img/badge_gold.webp" alt=""
+                            class="max-w-full max-h-full object-contain transform scale-90 shadow-black">
+                        <button
+                            class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-blue-700 transition-colors"
+                            data-position="ST">
+                            <span class="text-lg">+</span>
+                        </button>
+                    </div>
+                    <!-------------------------------------------------------------------->
+
+                </div>
+
+
+
+                <!-- liste des joueurs -->
+                <div class="restant relative bg-gray-200 rounded w-full md:w-1/3 p-5 flex flex-col items-center">
+                    <div>
+                        <h2 class="text-center text-gray-700 mb-5">Liste des joueurs</h2>
+                        <div class="cards grid grid-cols-3">
+
+                            <!-- card1 -->
+                            <div class="player_card relative text-black ">
+                                <img src="src/assets/img/badge_gold.webp" alt="">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold">90</p>
+                                    <p class="text-[8px] lg:text-xs">CF</p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold">Messi</p>
+
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="https://cdn.sofifa.net/flags/ar.png" width="10%" alt="">
+                                        <img src="https://cdn.sofifa.net/meta/team/271/30.png" width="10%" alt="">
+                                        <img src="https://cdn.sofifa.net/meta/team/2506/120.png" width="10%" alt="">
+                                    </div>
                                 </div>
                             </div>
+                            <!---------------add player button-->
+
                         </div>
+
                     </div>
-                    <!-- Ajoutez plus de cartes joueur ici -->
+                    <div class="addButton absolute bottom-0
+          border-double border-4 border-sky-500 items-center bg-blue-500 hover:bg-blue-600">
+                        <button>add+</button>
+                    </div>
                 </div>
+
+                <div id="player-form"
+                    class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div class="bg-white p-5 rounded shadow-md w-1/3">
+                        <h2 class="text-lg font-bold mb-4">Ajouter un joueur</h2>
+                        <input type="text" id="search-bar" placeholder="Chercher un joueur..."
+                            class="border p-2 w-full mb-4">
+                        <div id="playersContainer" class="max-h-60 overflow-y-auto"></div>
+                        <button id="close-form" class="mt-4 bg-red-500 text-white p-2 rounded">Fermer</button>
+                    </div>
+                </div>
+
+
             </div>
+
+
+
+
         </div>
-        
-        
+
+        <div id="players-list"></div>
+        <footer class="bg-gray-800 text-white p-4 mt-10">
+            <div class="container mx-auto text-center">
+                <p>&copy; 2024 Ultimate Football Team. All rights reserved.</p>
+                <p>
+                    <a href="#" class="hover:text-blue-200">Privacy Policy</a> |
+                    <a href="#" class="hover:text-blue-200">Terms of Service</a>
+                </p>
+            </div>
+        </footer>
+
     </div>
-    
-    <div id="players-list"></div>
 
     <script src="script.js"></script>
 </body>
