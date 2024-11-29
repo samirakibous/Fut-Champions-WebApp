@@ -693,6 +693,91 @@ function ajouterJoueur(e) {
 //         }
 //     });
 // });
+
+//====================================================================
+function showError(input, message) {
+  const formControl = input.parentElement;
+  const small = formControl.querySelector('small');
+  formControl.classList.add('border-red-500'); 
+  input.classList.add('ring-red-500', 'focus:ring-red-500');
+  small.classList.remove('hidden'); 
+  small.innerText = message; 
+}
+
+function hideError(input) {
+  const formControl = input.parentElement;
+  const small = formControl.querySelector('small');
+  formControl.classList.remove('border-red-500'); 
+  input.classList.remove('ring-red-500', 'focus:ring-red-500');
+  small.classList.add('hidden'); 
+}
+
+
+
+function toggleButton(isValid) {
+  const button = document.getElementById('addP');
+  if (isValid) {
+      button.disabled = false;
+      button.classList.remove('opacity-50', 'cursor-not-allowed');
+      button.classList.add('bg-blue-500', 'hover:bg-blue-700', 'cursor-pointer');
+  } else {
+      button.disabled = true;
+      button.classList.remove('bg-blue-500', 'hover:bg-blue-700', 'cursor-pointer');
+      button.classList.add('opacity-50', 'cursor-not-allowed');
+  }
+}
+function validateForm() {
+  let isValid = true;
+
+  //nom complet 
+  const nameValue = fullNameInput.value.trim();
+  if (nameValue.length < 8 || !nameValue.includes(" ") || !/^[a-zA-Z\s]+$/.test(nameValue)) {
+      showError(fullNameInput, "donner au moins 8lettres et un espace");
+      isValid = false;
+  } else {
+      hideError(fullNameInput);
+  }
+
+  //nationalité
+  if (!/^[a-zA-Z\s]+$/.test(nationalityInput.value.trim())) {
+      showError(nationalityInput, "saisir uniquement des lettres.");
+      isValid = false;
+  } else {
+      hideError(nationalityInput);
+  }
+
+  //photo
+  if (!/^(https?:\/\/[^\s]+)$/.test(photoInput.value.trim())) {
+      showError(photoInput, "L'URL de la photo est invalide.");
+      isValid = false;
+  } else {
+      hideError(photoInput);
+  }
+
+  //champs numérique
+  const numericFields = positionInput.value === 'GK'
+      ? [ratingInput, divingInput, handlingInput, kickingInput, reflexesInput, speedInput, positioningInput]
+      : [ratingInput, paceInput, shootingInput, passingInput, dribblingInput, defendingInput, physicalInput];
+
+  numericFields.forEach(field => {
+      if (isNaN(field.value) || field.value.trim() === '' || field.value < 1 || field.value > 100) {
+          showError(field, "Ce champ doit être un nombre valide entre 1 et 100.");
+          isValid = false;
+      } else {
+          hideError(field);
+      }
+  });
+
+  toggleButton(isValid);
+  return isValid;
+}
+
+
 //===========================validation=================================
 let AddplayerForm = document.getElementById('Addplayer-form');
+//=============================search=========================================
+ 
+
+
+
 
