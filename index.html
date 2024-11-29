@@ -33,8 +33,8 @@
                 <div class="flex-shrink-0 text-white font-bold ml-9">
                     <label for="formation">Formation:</label>
                     <select id="formation" class=" border-[#696969] rounded  bg-[#696969] p-2 text-white font-serif">
-                        <option class="text-white font-serif">4-4-2</option>
-                        <option class="text-white font-serif">4-3-3</option>
+                        <option value="4-4-2" class="text-white font-serif">4-4-2</option>
+                        <option value="4-3-3" class="text-white font-serif">4-3-3</option>
                     </select>
                 </div>
                 <div class="flex-shrink-0 text-white font-bold pr-9">
@@ -56,245 +56,714 @@
                     <img src="src/assets/img/1137.jpg" alt="Football Pitch" class="w-full">
 
                     <div id="squadTitle" class="absolute top-0"></div>
+                    <div id="pitch" class="absolute top-0 left-0 h-full w-full">
 
+                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                            <div class="w-full">
+                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
 
-                    <!-- Joueurs positionnés selon 4-3-3 -->
-                    <div id="formation-433" class="formation ">
-                        <!------------------------------GK------------------------------->
-                        <div class="player absolute top-[85%] left-[45%] w-[14%] lg:w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
-                                class="max-w-full max-h-full object-contain ">
-                            <button
-                                class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
                                 data-position="GK">
                                 <span class="text-lg">+</span>
-                            </button>
+                                </button>
+
+                            </div>
                         </div>
-                        <!------------------------------LB------------------------------->
-                        <div class="player absolute top-[65%] left-[10%] w-[14%] lg:w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
-                                class="max-w-full max-h-full object-contain ">
-                            <button
-                                class=" butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors"
-                                data-position="LB">
+                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                            <div class="w-full">
+                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                data-position="GK">
                                 <span class="text-lg">+</span>
-                            </button>
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                            <div class="w-full">
+                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                data-position="GK">
+                                <span class="text-lg">+</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                            <div class="w-full">
+                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                data-position="GK">
+                                <span class="text-lg">+</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                            <div class="w-full">
+                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                data-position="GK">
+                                <span class="text-lg">+</span>
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                            <div class="w-full">
+                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                data-position="GK">
+                                <span class="text-lg">+</span>
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                            <div class="w-full">
+                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                data-position="GK">
+                                <span class="text-lg">+</span>
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                            <div class="w-full">
+                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                data-position="GK">
+                                <span class="text-lg">+</span>
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                            <div class="w-full">
+                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                data-position="GK">
+                                <span class="text-lg">+</span>
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                            <div class="w-full">
+                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                data-position="GK">
+                                <span class="text-lg">+</span>
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                            <div class="w-full">
+                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                data-position="GK">
+                                <span class="text-lg">+</span>
+                                </button>
+
+                            </div>
                         </div>
 
-                        <!------------------------------CB------------------------------->
-                        <div class="player absolute top-[70%] left-[35%] w-[14%] lg:w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
-                                class="max-w-full max-h-full object-contain ">
-                            <button
-                                class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors"
-                                data-position="CB">
-                                <span class="text-lg">+</span>
-                            </button>
-                        </div>
-                        <!------------------------------CB------------------------------->
-                        <div class="player absolute top-[70%] left-[55%] w-[14%] lg:w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
-                                class="max-w-full max-h-full object-contain ">
-                            <button
-                                class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors"
-                                data-position="CB">
-                                <span class="text-lg">+</span>
-                            </button>
-                        </div>
-                        <!------------------------------RB------------------------------->
-                        <div class="player absolute top-[65%] left-[80%] w-[14%] lg:w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
-                                class="max-w-full max-h-full object-contain ">
-                            <button
-                                class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors"
-                                data-position="RB">
-                                <span class="text-lg">+</span>
-                            </button>
-                        </div>
-                        <!------------------------------CM------------------------------->
-                        <div class="player absolute top-[45%] left-[20%] w-[14%] lg:w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
-                                class="max-w-full max-h-full object-contain ">
-                            <button
-                                class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors"
-                                data-position="CM">
-                                <span class="text-lg">+</span>
-                            </button>
-                        </div>
-                        <!------------------------------CM------------------------------->
-                        <div class="player absolute top-[45%] left-[43%] w-[14%] lg:w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
-                                class="max-w-full max-h-full object-contain ">
-                            <button
-                                class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors"
-                                data-position="CM">
-                                <span class="text-lg">+</span>
-                            </button>
-                        </div>
-                        <!------------------------------CM------------------------------->
-                        <div class="player absolute top-[45%] left-[70%] w-[14%] lg:w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
-                                class="max-w-full max-h-full object-contain ">
-                            <button
-                                class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors"
-                                data-position="CM">
-                                <span class="text-lg">+</span>
-                            </button>
-                        </div>
-
-                        <!------------------------------LW------------------------------->
-
-                        <div class="player absolute top-[25%] left-[10%] w-[14%] lg:w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="Joueur lW"
-                                class="max-w-full max-h-full object-contain ">
-                            <button
-                                class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors"
-                                data-position="LW">
-                                <span class="text-lg">+</span>
-                            </button>
-
-                        </div>
-
-                        <!------------------------------RW------------------------------->
-                        <div class="player absolute top-[25%] left-[80%] w-[14%] lg:w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="Joueur RW"
-                                class="max-w-full max-h-full object-contain ">
-                            <button
-                                class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors"
-                                data-position="RW">
-                                <span class="text-lg">+</span>
-                            </button>
-                        </div>
-
-
-                        <!-------------------------test ST------------------------------->
-                        <div class="player absolute top-[10%] left-[45%] w-[14%] lg:w-[14%]">
-                            <div class="relative"></div>
-                            <img src="src/assets/img/badge_gold.webp" alt=""
-                                class="max-w-full max-h-full object-contain transform scale-90 shadow-black">
-                            <button
-                                class="butt absolute top-1/2 right-[35%] w-8 h-8 border  text-white rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors"
-                                data-position="ST">
-                                <span class="text-lg">+</span>
-                            </button>
-                        </div>
                     </div>
-                    <!-------------------------------------------------------------------->
-                    <!-------------------------------------4-4-2------------------------------>
-                    <div id="formation-442" class="formation hidden">
-                        <!------------------------------GK------------------------------->
-                        <div class="player absolute top-[85%] left-[45%] w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="GK">
-                        </div>
-                        <!------------------------------LB------------------------------->
-                        <div class="player absolute top-[65%] left-[10%] w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="LB">
-                        </div>
-                        <!------------------------------CB------------------------------->
-                        <div class="player absolute top-[65%] left-[35%] w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="CB">
-                        </div>
-                        <!------------------------------CB------------------------------->
-                        <div class="player absolute top-[65%] left-[55%] w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="CB">
-                        </div>
-                        <!------------------------------RB------------------------------->
-                        <div class="player absolute top-[65%] left-[80%] w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="RB">
-                        </div>
-                        <!------------------------------LM------------------------------->
-                        <div class="player absolute top-[45%] left-[10%] w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="LM">
-                        </div>
-                        <!------------------------------CM------------------------------->
-                        <div class="player absolute top-[45%] left-[35%] w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="CM">
-                        </div>
-                        <!------------------------------CM------------------------------->
-                        <div class="player absolute top-[45%] left-[55%] w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="CM">
-                        </div>
-                        <!------------------------------RM------------------------------->
-                        <div class="player absolute top-[45%] left-[80%] w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="RM">
-                        </div>
-                        <!------------------------------ST------------------------------->
-                        <div class="player absolute top-[25%] left-[35%] w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="ST">
-                        </div>
-                        <!------------------------------ST------------------------------->
-                        <div class="player absolute top-[25%] left-[55%] w-[14%]">
-                            <img src="src/assets/img/badge_gold.webp" alt="ST">
-                        </div>
-                    </div>
-
                 </div>
 
 
 
                 <!-- liste des joueurs -->
                 <div class="restant bg-black rounded w-full md:w-1/3 p-5 flex flex-col items-center">
-                    <div class="addButton px-5 mb-5
+                    <div
+                        class="addButton px-5 mb-5
                         border rounded p-2 border-gray-300 items-center bg-[#696969] hover:bg-gray-600 self-end text-white font-bold">
-                            <button onclick="afficherForm()">add+</button>
-                        </div>
+                        <button onclick="afficherForm()">add+</button>
+                    </div>
                     <div>
                         <div class="cards grid grid-cols-3">
-                            <!-- card1 -->
-                            <div class="player_card relative text-black ">
-                                <img src="src/assets/img/badge_gold.webp" alt="">
-                                <!-- position and number -->
-                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
-                                    <p class="text-[10px] lg:text-sm font-bold">90</p>
-                                    <p class="text-[8px] lg:text-xs">CF</p>
-                                </div>
-                                <!-- image -->
-                                <div
-                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                                    <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="">
-                                </div>
-                                <!-- name and more -->
-                            
-                            <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
-                                <p class="text-[8px] lg:text-xs md:text-xxs font-bold">Cristiano</p>
-                                <!-- player statistics -->
-                                <div
-                                    class="palyer_statistics w-full flex flex-row justify-around text-[6px] lg:text-[7px] md:text-[7px]">
-                                    <div class="flex flex-col items-center">
-                                        <p class="font-semibold">PAC</p>
-                                        <p class="font-extrabold">80</p>
-                                    </div>
-                                    <div class="flex flex-col items-center">
-                                        <p class="font-semibold">SHO</p>
-                                        <p class="font-extrabold">87</p>
-                                    </div>
-                                    <div class="flex flex-col items-center">
-                                        <p class="font-semibold">PAS</p>
-                                        <p class="font-extrabold">90</p>
-                                    </div>
-                                    <div class="flex flex-col items-center">
-                                        <p class="font-semibold">DRI</p>
-                                        <p class="font-extrabold">94</p>
-                                    </div>
-                                    <div class="flex flex-col items-center">
-                                        <p class="font-semibold">DEF</p>
-                                        <p class="font-extrabold">33</p>
-                                    </div>
-                                    <div class="flex flex-col items-center">
-                                        <p class="font-semibold">PHY</p>
-                                        <p class="font-extrabold">64</p>
-                                    </div>
-                                </div>
-                                    <!-- flags -->
-                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
-                                        <img src="https://cdn.sofifa.net/flags/ar.png" width="10%" alt="">
-                                        <img src="https://cdn.sofifa.net/meta/team/271/30.png" width="10%" alt="">
-                                        <img src="https://cdn.sofifa.net/meta/team/2506/120.png" width="10%" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <!---------------add player button-->
-
                         </div>
 
                     </div>
@@ -313,8 +782,7 @@
                         </button>
 
                         <h2 class="text-lg font-bold mb-4">Ajouter un joueur</h2>
-                        <input type="text" id="search-bar" placeholder="Chercher un joueur..."
-                            class="border p-2 w-full mb-4">
+                        <input type="text" id="search-bar" placeholder="Chercher un joueur..."class="border p-2 w-full mb-4">
                         <div id="playersContainer" class="max-h-60 overflow-y-auto"></div>
                     </div>
                 </div>
@@ -322,137 +790,151 @@
             </div>
         </div>
 
-         <!----------------------Le formulaire pour ajouter un joueur-------------------------->
-    <div class="addFrmContainer hidden  fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-         <form id="Addplayer-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-11/12 sm:w-3/4 lg:w-1/2">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="form-control">
-                <label class="text-gray-700 font-bold"  for="Full-Name">Full Name</label>
-                <input type="text" id="Full-Name" placeholder="Enter Full Name" oninput="validateName()" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>
-            <div class="form-control ">
-                <label class=" text-gray-700 font-bold " for="Photo">Photo </label>
-                <input type="text" placeholder="Enter Url" id="Photo" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>
-            <div class="form-control ">
-                <label class=" text-gray-700 font-bold " for="Position">Position </label>
-                <select name="position" id="position" class="w-full border rounded p-1">
-                    <option value="RW">RW</option>
-                    <option value="ST">ST</option>
-                    <option value="LW">LW</option>
-                    <option value="CM">CM</option>
-                    <option value="GK">GK</option>
-                    <option value="LB">LB</option>
-                    <option value="RB">RB</option>
-                    <option value="CB">CB</option>
-                </select>
-                <small class="text-red-500 hidden"></small>
-            </div>
-            <div class="form-control ">
-                <label class=" text-gray-700 font-bold" for="Nationality">Nationality </label>
-                <input type="text" placeholder="Enter country" id="Nationality" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>
-            <div class="form-control ">
-                <label class=" text-gray-700 font-bold" for="Flag">Flag </label>
-                <input type="text" placeholder="Enter Url" id="Flag" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>
-            <div class="form-control">
-                <label class=" text-gray-700 font-bold" for="Club">Club </label>
-                <input type="text" placeholder="Enter Club Name" id="Club" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>
-            <div class="form-control ">
-                <label class=" text-gray-700 font-bold" for="Logo">Logo </label>
-                <input type="text" placeholder="Enter url" id="Logo" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>
-            <div class="form-control ">
-                <label class=" text-gray-700 font-bold" for="Rating">Rating </label>
-                <input type="text" placeholder="Enter A Number" id="Rating" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>           
-            <div class="form-control non-gk ">
-                <label class=" text-gray-700 font-bold" for="Pace">Pace </label>
-                <input type="number" placeholder="Enter A Number" id="Pace" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>
+        <!----------------------Le formulaire pour ajouter un joueur-------------------------->
+        <div class="addFrmContainer hidden  fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <form id="Addplayer-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-11/12 sm:w-3/4 lg:w-1/2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="form-control">
+                        <label class="text-gray-700 font-bold" for="Full-Name">Full Name</label>
+                        <input type="text" id="Full-Name" placeholder="Enter Full Name" oninput="validateName()"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <div class="form-control ">
+                        <label class=" text-gray-700 font-bold " for="Photo">Photo </label>
+                        <input type="text" placeholder="Enter Url" id="Photo" class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <div class="form-control ">
+                        <label class=" text-gray-700 font-bold " for="Position">Position </label>
+                        <select name="position" id="position" class="w-full border rounded p-1">
+                            <option value="RW">RW</option>
+                            <option value="ST">ST</option>
+                            <option value="LW">LW</option>
+                            <option value="CM">CM</option>
+                            <option value="GK">GK</option>
+                            <option value="LB">LB</option>
+                            <option value="RB">RB</option>
+                            <option value="CB">CB</option>
+                        </select>
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <div class="form-control ">
+                        <label class=" text-gray-700 font-bold" for="Nationality">Nationality </label>
+                        <input type="text" placeholder="Enter country" id="Nationality"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <div class="form-control ">
+                        <label class=" text-gray-700 font-bold" for="Flag">Flag </label>
+                        <input type="text" placeholder="Enter Url" id="Flag" class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <div class="form-control">
+                        <label class=" text-gray-700 font-bold" for="Club">Club </label>
+                        <input type="text" placeholder="Enter Club Name" id="Club" class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <div class="form-control ">
+                        <label class=" text-gray-700 font-bold" for="Logo">Logo </label>
+                        <input type="text" placeholder="Enter url" id="Logo" class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <div class="form-control ">
+                        <label class=" text-gray-700 font-bold" for="Rating">Rating </label>
+                        <input type="text" placeholder="Enter A Number" id="Rating" class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <div class="form-control non-gk ">
+                        <label class=" text-gray-700 font-bold" for="Pace">Pace </label>
+                        <input type="number" placeholder="Enter A Number" id="Pace" class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
 
-            <div class="form-control  non-gk ">
-                <label class=" text-gray-700 font-bold " for="Shooting">Shooting </label>
-                <input type="number" placeholder="Enter A Number" id="Shooting" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>
+                    <div class="form-control  non-gk ">
+                        <label class=" text-gray-700 font-bold " for="Shooting">Shooting </label>
+                        <input type="number" placeholder="Enter A Number" id="Shooting"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
 
 
-            <div class="form-control non-gk ">
-                <label class=" text-gray-700 font-bold " for="Pacing">Pacing </label>
-                <input type="number" placeholder="Enter A Number" id="Passing" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>
-            <div class="form-control non-gk ">
-                <label class=" text-gray-700 font-bold " for="Dribbling">Dribbling </label>
-                <input type="number" placeholder="Enter A Number" id="Dribbling" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>
-            <div class="form-control non-gk">
-                <label class=" text-gray-700 font-bold " for="Defending">Defending </label>
-                <input type="number" placeholder="Enter A Number" id="Defending" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>
-            <div class="form-control non-gk ">
-                <label class=" text-gray-700 font-bold" for="Phisycal">Phisycal </label>
-                <input type="number" placeholder="Enter A Number" id="Phisycal" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div>
-            <!---------------------gk---------------------->
-            <div class="form-control specific-gk hidden">
-                <label class="text-gray-700 font-bold" for="diving">Diving</label>
-                <input type="number" placeholder="Enter Diving Rating" id="diving" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div> 
+                    <div class="form-control non-gk ">
+                        <label class=" text-gray-700 font-bold " for="Pacing">Pacing </label>
+                        <input type="number" placeholder="Enter A Number" id="Passing"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <div class="form-control non-gk ">
+                        <label class=" text-gray-700 font-bold " for="Dribbling">Dribbling </label>
+                        <input type="number" placeholder="Enter A Number" id="Dribbling"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <div class="form-control non-gk">
+                        <label class=" text-gray-700 font-bold " for="Defending">Defending </label>
+                        <input type="number" placeholder="Enter A Number" id="Defending"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <div class="form-control non-gk ">
+                        <label class=" text-gray-700 font-bold" for="Phisycal">Phisycal </label>
+                        <input type="number" placeholder="Enter A Number" id="Phisycal"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <!---------------------gk---------------------->
+                    <div class="form-control specific-gk hidden">
+                        <label class="text-gray-700 font-bold" for="diving">Diving</label>
+                        <input type="number" placeholder="Enter Diving Rating" id="diving"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
 
-            <div class="form-control specific-gk hidden">
-                <label class="text-gray-700 font-bold" for="handling">Handling</label>
-                <input type="number" placeholder="Enter Diving Rating" id="handling" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div> 
+                    <div class="form-control specific-gk hidden">
+                        <label class="text-gray-700 font-bold" for="handling">Handling</label>
+                        <input type="number" placeholder="Enter Diving Rating" id="handling"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
 
-            <div class="form-control specific-gk hidden">
-                <label class="text-gray-700 font-bold " for="kicking">kicking</label>
-                <input type="number" placeholder="Enter Diving Rating" id="kicking" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div> 
+                    <div class="form-control specific-gk hidden">
+                        <label class="text-gray-700 font-bold " for="kicking">kicking</label>
+                        <input type="number" placeholder="Enter Diving Rating" id="kicking"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
 
-            <div class="form-control specific-gk hidden">
-                <label class="text-gray-700 font-bold" for="Reflexes">Reflexes</label>
-                <input type="number" placeholder="Enter Diving Rating" id="reflexes" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div> 
+                    <div class="form-control specific-gk hidden">
+                        <label class="text-gray-700 font-bold" for="Reflexes">Reflexes</label>
+                        <input type="number" placeholder="Enter Diving Rating" id="reflexes"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
 
-            <div class="form-control specific-gk hidden">
-                <label class="text-gray-700 font-bold" for="Speed">Speed</label>
-                <input type="number" placeholder="Enter Diving Rating" id="speed" class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div> 
+                    <div class="form-control specific-gk hidden">
+                        <label class="text-gray-700 font-bold" for="Speed">Speed</label>
+                        <input type="number" placeholder="Enter Diving Rating" id="speed"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
 
-            
-            <div class="form-control specific-gk hidden">
-                <label class="text-gray-700 font-bold" for="Positioning">Positoning</label>
-                <input type="number" placeholder="Enter Diving Rating" id="positioning"class="w-full border rounded p-1">
-                <small class="text-red-500 hidden"></small>
-            </div> 
-<!------------------------------------------------------------->
-            <div class="flex gap-5 ">
-                <button class="bg-blue-500 text-white px-4 py-1 rounded" id="addP"  onclick="if(validateForm()) ajouterJoueur(event);">Ajouter</button>
-                <button  class="bg-red-500 text-white px-4 py-1 rounded" id="annuler">Anuler</button>
-            </div>
+
+                    <div class="form-control specific-gk hidden">
+                        <label class="text-gray-700 font-bold" for="Positioning">Positoning</label>
+                        <input type="number" placeholder="Enter Diving Rating" id="positioning"
+                            class="w-full border rounded p-1">
+                        <small class="text-red-500 hidden"></small>
+                    </div>
+                    <!------------------------------------------------------------->
+                    <div class="flex gap-5 ">
+                        <button class="bg-blue-500 text-white px-4 py-1 rounded" id="addP"
+                            onclick="if(validateForm()) ajouterJoueur(event);">Ajouter</button>
+                        <button class="bg-red-500 text-white px-4 py-1 rounded" id="annuler">Anuler</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        </form>
-    </div>
         <!---------------------Le div où on va afficher la liste des joueurs--------------------->
 
         <div id="players-list"></div>

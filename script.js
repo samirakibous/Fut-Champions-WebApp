@@ -494,19 +494,6 @@ closeFormButton.addEventListener('click', () => {
   playerForm.classList.add('hidden');
 });
 
-//=================================================//
-let formation = document.getElementById("formation");
-formation.addEventListener('click', function () {
-  const selectedFormation = formation.value;
-  document.getElementById('formation-433').classList.add('hidden');
-  document.getElementById('formation-442').classList.add('hidden');
-  if (selectedFormation === '4-3-3') {
-    document.getElementById('formation-433').classList.remove('hidden');
-  } else if (selectedFormation === '4-4-2') {
-    document.getElementById('formation-442').classList.remove('hidden');
-  }
-})
-
 //=================================================// 
 let addFormContainer = document.querySelector('.addFrmContainer');
 
@@ -577,8 +564,8 @@ positionSelect.addEventListener('change', () => {
   const selectedPosition = positionSelect.value;
 
   if (selectedPosition === 'GK') {
-    specificGKFields.forEach(field => field.classList.remove('hidden')); 
-    nonGKFields.forEach(field => field.classList.add('hidden')); 
+    specificGKFields.forEach(field => field.classList.remove('hidden'));
+    nonGKFields.forEach(field => field.classList.add('hidden'));
   } else {
     specificGKFields.forEach(field => field.classList.add('hidden'));
     nonGKFields.forEach(field => field.classList.remove('hidden'));
@@ -698,32 +685,37 @@ function ajouterJoueur(e) {
 function showError(input, message) {
   const formControl = input.parentElement;
   const small = formControl.querySelector('small');
-  formControl.classList.add('border-red-500'); 
+  formControl.classList.add('border-red-500');
   input.classList.add('ring-red-500', 'focus:ring-red-500');
-  small.classList.remove('hidden'); 
-  small.innerText = message; 
+  small.classList.remove('hidden');
+  small.innerText = message;
 }
 
 function hideError(input) {
   const formControl = input.parentElement;
   const small = formControl.querySelector('small');
-  formControl.classList.remove('border-red-500'); 
+  formControl.classList.remove('border-red-500');
   input.classList.remove('ring-red-500', 'focus:ring-red-500');
-  small.classList.add('hidden'); 
+  small.classList.add('hidden');
 }
 
+document.querySelector('#Addplayer-form').querySelectorAll("input").forEach(input => {
+  input.addEventListener('input', () => {
+    validateForm()
+  })
 
+})
 
 function toggleButton(isValid) {
   const button = document.getElementById('addP');
   if (isValid) {
-      button.disabled = false;
-      button.classList.remove('opacity-50', 'cursor-not-allowed');
-      button.classList.add('bg-blue-500', 'hover:bg-blue-700', 'cursor-pointer');
+    button.disabled = false;
+    button.classList.remove('opacity-50', 'cursor-not-allowed');
+    button.classList.add('bg-blue-500', 'hover:bg-blue-700', 'cursor-pointer');
   } else {
-      button.disabled = true;
-      button.classList.remove('bg-blue-500', 'hover:bg-blue-700', 'cursor-pointer');
-      button.classList.add('opacity-50', 'cursor-not-allowed');
+    button.disabled = true;
+    button.classList.remove('bg-blue-500', 'hover:bg-blue-700', 'cursor-pointer');
+    button.classList.add('opacity-50', 'cursor-not-allowed');
   }
 }
 function validateForm() {
@@ -732,40 +724,40 @@ function validateForm() {
   //nom complet 
   const nameValue = fullNameInput.value.trim();
   if (nameValue.length < 8 || !nameValue.includes(" ") || !/^[a-zA-Z\s]+$/.test(nameValue)) {
-      showError(fullNameInput, "donner au moins 8lettres et un espace");
-      isValid = false;
+    showError(fullNameInput, "donner au moins 8lettres et un espace");
+    isValid = false;
   } else {
-      hideError(fullNameInput);
+    hideError(fullNameInput);
   }
 
   //nationalité
   if (!/^[a-zA-Z\s]+$/.test(nationalityInput.value.trim())) {
-      showError(nationalityInput, "saisir uniquement des lettres.");
-      isValid = false;
+    showError(nationalityInput, "saisir uniquement des lettres.");
+    isValid = false;
   } else {
-      hideError(nationalityInput);
+    hideError(nationalityInput);
   }
 
   //photo
   if (!/^(https?:\/\/[^\s]+)$/.test(photoInput.value.trim())) {
-      showError(photoInput, "L'URL de la photo est invalide.");
-      isValid = false;
+    showError(photoInput, "L'URL de la photo est invalide.");
+    isValid = false;
   } else {
-      hideError(photoInput);
+    hideError(photoInput);
   }
 
   //champs numérique
   const numericFields = positionInput.value === 'GK'
-      ? [ratingInput, divingInput, handlingInput, kickingInput, reflexesInput, speedInput, positioningInput]
-      : [ratingInput, paceInput, shootingInput, passingInput, dribblingInput, defendingInput, physicalInput];
+    ? [ratingInput, divingInput, handlingInput, kickingInput, reflexesInput, speedInput, positioningInput]
+    : [ratingInput, paceInput, shootingInput, passingInput, dribblingInput, defendingInput, physicalInput];
 
   numericFields.forEach(field => {
-      if (isNaN(field.value) || field.value.trim() === '' || field.value < 1 || field.value > 100) {
-          showError(field, "Ce champ doit être un nombre valide entre 1 et 100.");
-          isValid = false;
-      } else {
-          hideError(field);
-      }
+    if (isNaN(field.value) || field.value.trim() === '' || field.value < 1 || field.value > 100) {
+      showError(field, "Ce champ doit être un nombre valide entre 1 et 100.");
+      isValid = false;
+    } else {
+      hideError(field);
+    }
   });
 
   toggleButton(isValid);
@@ -776,7 +768,61 @@ function validateForm() {
 //===========================validation=================================
 let AddplayerForm = document.getElementById('Addplayer-form');
 //=============================search=========================================
- 
+const formations = [
+  {
+    formation: "4-4-2",
+    positions: [
+      { pos: "st", x: 35, y: 30 },
+      { pos: "st", x: 65, y: 30 },
+      { pos: "cm", x: 15, y: 45 },
+      { pos: "cm", x: 35, y: 50 },
+      { pos: "cm", x: 65, y: 50 },
+      { pos: "cm", x: 85, y: 45 },
+      { pos: "cb", x: 20, y: 70 },
+      { pos: "cb", x: 40, y: 75 },
+      { pos: "cb", x: 60, y: 75 },
+      { pos: "cb", x: 80, y: 70 },
+      { pos: "gk", x: 50, y: 95 }
+    ]
+  },
+  {
+    formation: "4-3-3",
+    positions: [
+      { pos: "st", x: 20, y: 30 },
+      { pos: "st", x: 50, y: 25 },
+      { pos: "st", x: 80, y: 30 },
+      { pos: "cm", x: 30, y: 55 },
+      { pos: "cm", x: 50, y: 50 },
+      { pos: "cm", x: 70, y: 55 },
+      { pos: "cb", x: 20, y: 70 },
+      { pos: "cb", x: 40, y: 75 },
+      { pos: "cb", x: 60, y: 75 },
+      { pos: "cb", x: 80, y: 70 },
+      { pos: "gk", x: 50, y: 95 }
+    ],
+  },
+
+];
+
+let formationSelect = document.getElementById("formation");
+formationSelect.addEventListener('change', function () {
+  repositionCards(formationSelect.value);
+})
+
+function repositionCards(formation) {
+  const selectedFormation = formations.find(f => f.formation === formation);
+  const cards = document.querySelectorAll(".card");
+  
+  selectedFormation.positions.forEach((pos, inx)=>{
+    cards[inx].style.top = `${pos.y}%`;
+    cards[inx].style.left = `${pos.x}%`
+  })
+  
+}
+
+repositionCards('4-4-2');
+
+//===================================================
 
 
 
