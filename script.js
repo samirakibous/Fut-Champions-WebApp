@@ -485,6 +485,7 @@ document.addEventListener('DOMContentLoaded', function () {
 let addPlayerButtons = document.querySelectorAll('.butt');
 let playerForm = document.getElementById('player-form');
 let closeFormButton = document.getElementById('close-form');
+
 addPlayerButtons.forEach(button => {
   button.addEventListener('click', () => {
     playerForm.classList.remove('hidden');
@@ -529,10 +530,38 @@ function populatePlayers(array) {
      <!-- name and more -->
      <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
          <p class="text-[8px] lg:text-xs md:text-xs font-bold">${player.name.split(' ')[1]}</p>
-         <div>
-             <span> ${player.position === 'GK' ? 'DIV' : 'PAC'}</span> 
-             <span> ${player.position === 'GK' ? player.diving : player.pace}</span> 
-</div>
+         <div class="flex items-center justify-between w-full">
+
+         <div class="flex flex-col items-center leading-3">
+             <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'DIV' : 'PAC'}</span> 
+             <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.diving : player.pace}</span> 
+        </div>
+
+         <div class="flex flex-col items-center leading-3">
+             <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'HND' : 'SHO'}</span> 
+             <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.handling : player.shooting}</span> 
+        </div>
+
+         <div class="flex flex-col items-center leading-3">
+             <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'KIC' : 'PAS'}</span> 
+             <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.kicking : player.passing}</span> 
+        </div>
+
+         <div class="flex flex-col items-center leading-3">
+             <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'REF' : 'DRI'}</span> 
+             <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.reflexes : player.dribbling}</span> 
+        </div>
+
+         <div class="flex flex-col items-center leading-3">
+             <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'DIV' : 'PAC'}</span> 
+             <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.diving : player.pace}</span> 
+        </div>
+
+         <div class="flex flex-col items-center leading-3">
+             <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'POS' : 'PHY'}</span> 
+             <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.positioning : player.physical}</span> 
+        </div>
+        </div>
          <!-- flags -->
          <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
              <img src="${player.flag}" width="10%" alt="">
@@ -541,8 +570,7 @@ function populatePlayers(array) {
      </div>
                           
   `;
-
-
+  div.addEventListener('click', () => afficherSurTerrain(player));
     cards.appendChild(div);
   })
 }
@@ -764,6 +792,11 @@ function validateForm() {
   return isValid;
 }
 
+// const annuler=document.getElementById('annuler');
+// annuler.addEventListener('click', () => {
+//   annuler.classList.add('hidden');
+// });
+
 
 //===========================validation=================================
 let AddplayerForm = document.getElementById('Addplayer-form');
@@ -825,5 +858,39 @@ repositionCards('4-4-2');
 //===================================================
 
 
+// function afficherSurTerrain(player) {
+//   const positionElement = document.querySelector(`.butt[data-position="${player.position}"]`);
+  
+//   if (positionElement) {
+//     positionElement.innerHTML = `
+//       <div class="relative text-black">
+//         <img src="src/assets/img/badge_gold.webp" alt="" class="w-full h-full object-contain">
+//         <div class="player_positoin absolute top-[25%] left-[15%]">
+//           <p class="text-[10px] lg:text-sm font-bold">${player.rating}</p>
+//           <p class="text-[8px] lg:text-xs">${player.position}</p>
+//         </div>
+//         <div class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+//           <img src="${player.photo}" alt="${player.name}">
+//         </div>
+//         <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+//           <p class="text-[8px] lg:text-xs md:text-xs font-bold">${player.name}</p>
+//         </div>
+//       </div>
+//     `;
+//   } else {
+//     alert("Position non trouvée sur le terrain.");
+//   }
+// }
+
+
+// function afficherSurTerrain(player) {
+//   const positionElement = document.querySelector(`.butt[data-position="${player.position}"]`);
+  
+//   if (positionElement && !positionElement.hasChildNodes()) {
+//     // Ajoutez la carte du joueur
+//   } else if (positionElement) {
+//     alert(`La position ${player.position} est déjà occupée.`);
+//   }
+// }
 
 
