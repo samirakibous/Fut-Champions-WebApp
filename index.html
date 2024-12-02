@@ -58,7 +58,7 @@
                     <div id="squadTitle" class="absolute top-0"></div>
                     <div id="pitch" class="absolute top-0 left-0 h-full w-full">
 
-                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                        <div class="card -translate-x-1/2  -translate-y-full  absolute w-1/5" >
                             <div class="w-full">
                                 <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
                             </div>
@@ -770,10 +770,10 @@
 
                 </div>
 
-                <div id="player-form"
+                <div id="chosePlayerDiv"
                     class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <div class="bg-gray-300 p-5 rounded shadow-md w-1/3 relative">
-                        <button id="close-form" class=" bg-black text-white p-2 rounded absolute top-2 right-2">
+                        <button id="closeDiv" class=" bg-black text-white p-2 rounded absolute top-2 right-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -781,7 +781,8 @@
                             </svg>
                         </button>
 
-                        <h2 class="text-lg font-bold mb-4">Ajouter un joueur</h2>
+                        <h2 class="text-lg font-bold mb-4 bg">Ajouter un joueur</h2>
+                        <button class="viderCarte bg-blue-500" onclick="clearFieldCards()">Vider la carte</button>
                         <input type="text" id="search-bar" placeholder="Chercher un joueur..."class="border p-2 w-full mb-4">
                         <div id="playersContainer" class="max-h-60 overflow-y-auto"></div>
                     </div>
@@ -941,9 +942,28 @@
                 </div>
             </form>
         </div>
+
         <!---------------------Le div où on va afficher la liste des joueurs--------------------->
 
         <div id="players-list"></div>
+
+
+        <div id="edit-player-form" class="hidden bg-white p-4 rounded shadow-md">
+            <h2 class="text-lg font-bold mb-4">Modifier le joueur</h2>
+            <form id="editForm">
+              <input type="hidden" id="playerId">
+              <label for="name">Nom:</label>
+              <input type="text" id="editName" class="border p-2 mb-2 w-full">
+              <label for="position">Position:</label>
+              <input type="text" id="editPosition" class="border p-2 mb-2 w-full">
+              <!-- Ajoutez les autres champs selon vos besoins -->
+              <button type="button" id="saveChanges" class="bg-blue-500 text-white p-2 rounded">Enregistrer</button>
+              <button type="button" id="deletePlayer" class="bg-red-500 text-white p-2 rounded">Supprimer</button>
+              <button type="button" id="cancelEdit" class="bg-gray-500 text-white p-2 rounded">Annuler</button>
+            </form>
+          </div>
+          
+
 
         <!--------------------------footer------------------------------->
 

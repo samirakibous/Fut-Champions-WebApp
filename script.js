@@ -1,3 +1,5 @@
+let playerEditing;
+let editMode = false;
 const initialPlayers = {
     "players": [
         {
@@ -419,7 +421,6 @@ const initialPlayers = {
 }
 
 
-
 //=============================================//
 
 //charger les joueurs depuis localStorage ou initialiser avec les données intégrées
@@ -430,23 +431,6 @@ initialPlayers.players.forEach((player, inx) => player.id = inx);
 if (!localStorage.getItem('players')) {
     localStorage.setItem('players', JSON.stringify({ players: initialPlayers.players }));
 }
-
-// function afficherJoueurs() {
-//   const playersContainer = document.getElementById('players-list');
-//   playersContainer.innerHTML = '';
-//   playersArray.forEach(player => {
-//     const playerDiv = document.createElement('div');
-//     playerDiv.innerHTML = `
-//       <img src="${player.photo}" alt="${player.name}" style="width:50px;height:50px;">
-//       <strong>${player.name}</strong> - ${player.position}
-//       <p>Note : ${player.rating}</p>
-//     `;
-//     playersContainer.appendChild(playerDiv);
-//   });
-// }
-// afficherJoueurs();
-
-
 //=============================================//
 
 const titleContainer = document.getElementById('squadTitle');
@@ -465,7 +449,7 @@ function afficherTitre(titleValue) {
     titleContainer.appendChild(titleElement);
 }
 
-saveButton.addEventListener('click', function() {
+saveButton.addEventListener('click', function () {
     const titleValue = titre.value.trim();
     if (titleValue) {
         localStorage.setItem('squadTitle', titleValue);
@@ -475,7 +459,7 @@ saveButton.addEventListener('click', function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const savedTitle = localStorage.getItem('squadTitle');
     if (savedTitle) {
         afficherTitre(savedTitle);
@@ -483,23 +467,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //=============================================//
-let addPlayerButtons = document.querySelectorAll('.butt');
-let playerForm = document.getElementById('player-form');
-let closeFormButton = document.getElementById('close-form');
+let addPlayerButtons = document.querySelectorAll('.butt');//boutons (+) des cartes
+let chosePlayerDiv = document.getElementById('chosePlayerDiv');
+let closeDivButton = document.getElementById('closeDiv');
 
-closeFormButton.addEventListener('click', () => {
-    playerForm.classList.add('hidden');
+closeDivButton.addEventListener('click', () => {
+    chosePlayerDiv.classList.add('hidden');
 });
 
-//=================================================//
+//=====================le formulaire pour ajouter un joueur============================//
+
 let addFormContainer = document.querySelector('.addFrmContainer');
 
 function afficherForm() {
     addFormContainer.classList.remove('hidden');
 }
 
-//==================================================
-const cards = document.querySelector('.cards');
+//=======================la liste des joueurs===========================
+
+const listcards = document.querySelector('.cards');
+
 
 function populatePlayers(target, array) {
     target.innerHTML = '';
@@ -572,15 +559,17 @@ function populatePlayers(target, array) {
 
 if (playersArray.length > 0) {
 
-    populatePlayers(cards, playersArray)
-    let playersListCards = cards.querySelectorAll('.cart')
+    populatePlayers(listcards, playersArray)
+    let playersListCards = listcards.querySelectorAll('.cart')
+
     playersListCards.forEach(card => {
         card.addEventListener('click', () => {
             //
         })
     })
 }
-//================================================
+//======================formulaire==========================
+//afficher ou masquer certains champ de formulaire
 const positionSelect = document.getElementById('position');
 const nonGKFields = document.querySelectorAll('.non-gk');
 const specificGKFields = document.querySelectorAll('.specific-gk');
@@ -598,7 +587,6 @@ positionSelect.addEventListener('change', () => {
 });
 
 
-//==================================================
 //récupérer les elements de DOM
 const fullNameInput = document.getElementById('Full-Name');
 const photoInput = document.getElementById('Photo');
@@ -622,7 +610,7 @@ const defendingInput = document.getElementById('Defending');
 const physicalInput = document.getElementById('Phisycal');
 const formContainer = document.getElementById('Addplayer-form');
 
-//===================================================
+
 function ajouterJoueur(e) {
     e.preventDefault(); // Empêche le rechargement de la page
     const name = fullNameInput.value;
@@ -653,60 +641,25 @@ function ajouterJoueur(e) {
         newPlayer.physical = parseInt(physicalInput.value) || 0;
     }
 
-    playersArray.push(newPlayer);
-    localStorage.setItem('players', JSON.stringify({ players: playersArray }));
-    populatePlayers(cards, playersArray);
+    if (editMode) {
 
+        playersArray.find(player => player.id === editPlayerId) = newPlayer;
+        localStorage.setItem('players', JSON.stringify({ players: playersArray }));
+        populatePlayers(document.querySelector('.cards'), playersArray);
+        editMode = false; // whene editing is done
+    } else {
+
+
+        playersArray.push(newPlayer);
+        localStorage.setItem('players', JSON.stringify({ players: playersArray }));
+
+    }
+    populatePlayers(cards, playersArray);
     // Vider le formulaire pour une nouvelle saisie
     formContainer.reset();
     addFormContainer.classList.add('hidden');
 }
 
-//====================================================
-// // Sélectionner toutes les cartes de joueur
-// const playerCards = document.querySelectorAll('.player_card');
-// const playersOnField = {}; // Suivi des positions déjà occupées
-
-// playerCards.forEach(card => {
-//     card.addEventListener('click', () => {
-//         const playerName = card.querySelector('.font-bold').innerText;
-//         const playerImage = card.querySelector('.player_image img').src;
-//         const playerPosition = card.querySelector('.player_positoin p:nth-child(2)').innerText.trim();
-//         const playerRating = card.querySelector('.player_positoin p:first-child').innerText;
-
-//         // Vérifier si la position est déjà occupée
-//         if (playersOnField[playerPosition]) {
-//             alert(`Position ${playerPosition} déjà occupée.`);
-//             return;
-//         }
-
-//         // Chercher la position correspondante sur le terrain
-//         const positionElement = document.querySelector(`.butt[data-position="${playerPosition}"]`);
-//         if (positionElement) {
-//             const parent = positionElement.parentElement;
-//             parent.innerHTML = `
-//                 <div class="relative text-black">
-//                     <img src="src/assets/img/badge_gold.webp" alt="" class="w-full h-full object-contain">
-//                     <div class="player_positoin absolute top-[25%] left-[15%]">
-//                         <p class="text-[10px] lg:text-sm font-bold">${playerRating}</p>
-//                         <p class="text-[8px] lg:text-xs">${playerPosition}</p>
-//                     </div>
-//                     <div class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-//                         <img src="${playerImage}" alt="${playerName}">
-//                     </div>
-//                     <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
-//                         <p class="text-[8px] lg:text-xs md:text-xs font-bold">${playerName}</p>
-//                     </div>
-//                 </div>
-//             `;
-//             playersOnField[playerPosition] = true; // Marquer la position comme occupée
-//         } else {
-//             alert("Position non trouvée sur le terrain.");
-//         }
-//     });
-// });
-
-//====================================================================
 function showError(input, message) {
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
@@ -796,8 +749,7 @@ function validateForm() {
 
 
 //===========================validation=================================
-let AddplayerForm = document.getElementById('Addplayer-form');
-//=============================search=========================================
+//======================================================================
 const formations = [
     {
         formation: "4-4-2",
@@ -835,7 +787,7 @@ const formations = [
 ];
 
 let formationSelect = document.getElementById("formation");
-formationSelect.addEventListener('change', function() {
+formationSelect.addEventListener('change', function () {
     repositionCards(formationSelect.value);
 })
 
@@ -850,7 +802,8 @@ function repositionCards(formation) {
         cards[inx].dataset.id = inx;
 
         cards[inx].addEventListener('click', () => {
-            playerForm.classList.remove('hidden');
+            chosePlayerDiv.classList.remove('hidden');
+            // const poss = 'st';
             const poss = pos.pos;
             populatePlayersByPos(poss);
             selectetFieldCard = inx; // knkhzno l index dyal l card li clickina 3lih
@@ -867,8 +820,8 @@ function populatePlayersByPos(pos) {
         return player.position.toLowerCase() === pos &&
             !fieldPlayers.find(fPlayer => fPlayer.player.id == player.id)
     });
-    populatePlayers(playerForm.querySelector('#playersContainer'), filteredPlayers);
-    let formCards = playerForm.querySelectorAll('.cart')
+    populatePlayers(chosePlayerDiv.querySelector('#playersContainer'), filteredPlayers);
+    let formCards = chosePlayerDiv.querySelectorAll('.cart')
     if (!formCards) {
         return;
     }
@@ -877,8 +830,18 @@ function populatePlayersByPos(pos) {
             let playerId = card.dataset.id;
             let player = playersArray.find(player => player.id == playerId)
 
+            // playersArray.slice(players.indexOf(player), 1);
+            // fieldPlayers.push(player);
+            // populatePlayers(cards, playersArray)
+
+
+
+            // maghatjib waaaaaalooo hiya hna li n3tiwha kolshi
+            // argument lwl: howa index/id dyal card fdiv dyal terrain
+            // argument tani: howa player obj dyal player li hydna mn list, fih ga3 data dyal
+            // dk lplayer bash nbynoh fdik l card li f terrain
             showPlayerInFieldCard(selectetFieldCard, player);
-            playerForm.classList.add('hidden')
+            chosePlayerDiv.classList.add('hidden')
         })
     })
 }
@@ -902,11 +865,6 @@ function showPlayerInFieldCard(cardId, player) {
     //njbdo hdik l card li clickina 3liha faalwl bash bnt dik l form;
     const card = cards[cardId] // hit l id dylha howa nafso l index dylha
 
-
-    // bima anaho kndiro override 3la html dyal l card ra y3ni dak button ghymshi
-    // ooooo aaaaslan click mkhssh tkon 3laaa l button hit mthalan fash l buttona tmshi wykon 3ndna
-    // player fdik lcard moraha bghit nbdl l player kindir
-    // khasni 3wd n clicki 3la l card bash ibano la3ba li ymkn nswappihom
 
 
     card.innerHTML = `
@@ -969,43 +927,102 @@ function showPlayerInFieldCard(cardId, player) {
 
 }
 
-
 //===================================================
 
 
-// function afficherSurTerrain(player) {
-//   const positionElement = document.querySelector(`.butt[data-position="${player.position}"]`);
+function clearFieldCards() {
+    fieldPlayers.filter(fieldCard => fieldCard.cardId !== selectetFieldCard)
 
-//   if (positionElement) {
-//     positionElement.innerHTML = `
-//       <div class="relative text-black">
-//         <img src="src/assets/img/badge_gold.webp" alt="" class="w-full h-full object-contain">
-//         <div class="player_positoin absolute top-[25%] left-[15%]">
-//           <p class="text-[10px] lg:text-sm font-bold">${player.rating}</p>
-//           <p class="text-[8px] lg:text-xs">${player.position}</p>
-//         </div>
-//         <div class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-//           <img src="${player.photo}" alt="${player.name}">
-//         </div>
-//         <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
-//           <p class="text-[8px] lg:text-xs md:text-xs font-bold">${player.name}</p>
-//         </div>
-//       </div>
-//     `;
-//   } else {
-//     alert("Position non trouvée sur le terrain.");
-//   }
-// }
+    const fieldCard = document.querySelectorAll('.card')[selectetFieldCard]
+    console.log(fieldCard);
 
+    fieldCard.innerHTML = `
+        <div class="w-full">
+            <img src="./src/assets/img/badge_gold.webp" alt="" class="w-full">
+        </div>
+        <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
 
-// function afficherSurTerrain(player) {
-//   const positionElement = document.querySelector(`.butt[data-position="${player.position}"]`);
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
 
-//   if (positionElement && !positionElement.hasChildNodes()) {
-//     // Ajoutez la carte du joueur
-//   } else if (positionElement) {
-//     alert(`La position ${player.position} est déjà occupée.`);
-//   }
-// }
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
 
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                data-position="GK">
+                                <span class="text-lg">+</span>
+                                </button>
+
+                            </div>
+                           
+    `
+    chosePlayerDiv.classList.add('hidden');
+    console.log(fieldCard);
+}
+
+//====================================================
+const listeDesCartes = document.querySelectorAll('.cart');
+
+listeDesCartes.forEach(cart => {
+    cart.addEventListener('click', () => {
+        afficherForm();
+        editMode = true; // after edit is done or cancled it must returnt to false
+        fillFormForEdit(cart.dataset.id);
+        // let playerId = card.dataset.id;
+        // let player = playersArray.find(player => player.id == playerId);
+        // const playerData = playersArray.find(player => player.id === playerId);
+    });
+});
+
+function fillFormForEdit(id) {
+    playerEditing = playersArray[id];
+    const playerForm = document.querySelector('#Addplayer-form');
+    console.log(id);
+    console.log(playerForm.querySelector('#Addplayer-form'));
+
+}
 
