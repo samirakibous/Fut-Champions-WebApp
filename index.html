@@ -796,7 +796,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="form-control">
                         <label class="text-gray-700 font-bold" for="Full-Name">Full Name</label>
-                        <input type="text" id="Full-Name" placeholder="Enter Full Name" oninput="validateName()"
+                        <input type="text" id="Full-Name" placeholder="Enter Full Name" oninput="validateForm()"
                             class="w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
@@ -812,6 +812,10 @@
                             <option value="ST">ST</option>
                             <option value="LW">LW</option>
                             <option value="CM">CM</option>
+                            <option value="CDM">CDM</option>
+                            <option value="CAM">CAM</option>
+                            <option value="LM">LM</option>
+                            <option value="RM">RM</option>
                             <option value="GK">GK</option>
                             <option value="LB">LB</option>
                             <option value="RB">RB</option>
@@ -930,7 +934,9 @@
                     <div class="flex gap-5 ">
                         <button class="bg-blue-500 text-white px-4 py-1 rounded" id="addP"
                             onclick="if(validateForm()) ajouterJoueur(event);">Ajouter</button>
+                            <button type="button" id="delete-player" class="bg-red-500 hidden">Supprimer</button>
                         <button class="bg-red-500 text-white px-4 py-1 rounded" id="annuler">Anuler</button>
+
                     </div>
                 </div>
             </form>
