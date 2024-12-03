@@ -1,5 +1,6 @@
 let playerEditing;
 let editMode = false;
+
 const initialPlayers = {
     "players": [
         {
@@ -955,7 +956,7 @@ function clearFieldCards() {
 
     fieldCard.innerHTML = `
         <div class="w-full">
-            <img src="./src/assets/img/badge_gold.webp" alt="" class="w-full">
+            <img src="./src/assets/img/badge_gold.webp" alt="" class+="w-full">
         </div>
         <div class="absolute top-0 left-0 w-full h-full text-black">
                                 <!-- position and number -->
