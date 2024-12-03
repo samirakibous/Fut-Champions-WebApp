@@ -426,11 +426,21 @@ const initialPlayers = {
 //charger les joueurs depuis localStorage ou initialiser avec les données intégrées
 let playersArray = JSON.parse(localStorage.getItem('players'))?.players || initialPlayers.players;
 
+
 //sauvegarder les données si elles n'existent pas déjà
 initialPlayers.players.forEach((player, inx) => player.id = inx);
+function addIds() {
+    initialPlayers.players.forEach((player, inx) => player.id = inx);
+}
+
+
 if (!localStorage.getItem('players')) {
+    addIds();
     localStorage.setItem('players', JSON.stringify({ players: initialPlayers.players }));
 }
+
+
+
 //=============================================//
 
 const titleContainer = document.getElementById('squadTitle');
@@ -478,10 +488,10 @@ closeDivButton.addEventListener('click', () => {
 //=====================le formulaire pour ajouter un joueur============================//
 
 let addFormContainer = document.querySelector('.addFrmContainer');
-let annuler=document.getElementById('annuler');
+let annuler = document.getElementById('annuler');
 annuler.addEventListener('click', () => {
     addFormContainer.classList.add('hidden');
- });
+});
 function afficherForm() {
     addFormContainer.classList.remove('hidden');
 }
@@ -625,7 +635,7 @@ function ajouterJoueur(e) {
     const logo = logoInput.value;
     const rating = parseInt(ratingInput.value) || 0;
 
-    let newPlayer = { id: Date.now(), name, photo, position, nationality, flag, club, logo, rating };
+    let newPlayer = { id: editMode ?editPlayerId:Date.now(), name, photo, position, nationality, flag, club, logo, rating };
 
     // Champs pour le goal keeper
     if (position === 'GK') {
@@ -646,7 +656,8 @@ function ajouterJoueur(e) {
 
     if (editMode) {
 
-        playersArray.find(player => player.id === editPlayerId) = newPlayer;
+       let  oldPl = playersArray.find(p => p.id === editPlayerId);
+      playersArray[playersArray.indexOf(oldPl)] =newPlayer;
         localStorage.setItem('players', JSON.stringify({ players: playersArray }));
         populatePlayers(document.querySelector('.cards'), playersArray);
         editMode = false; // whene editing is done
@@ -657,7 +668,7 @@ function ajouterJoueur(e) {
         localStorage.setItem('players', JSON.stringify({ players: playersArray }));
 
     }
-    populatePlayers(cards, playersArray);
+    populatePlayers(document.querySelector('.cards'), playersArray);
     // Vider le formulaire pour une nouvelle saisie
     formContainer.reset();
     addFormContainer.classList.add('hidden');
@@ -1016,8 +1027,9 @@ const listeDesCartes = document.querySelectorAll('.cart');
 listeDesCartes.forEach(cart => {
     cart.addEventListener('click', () => {
         afficherForm();
+        editPlayerId = parseInt(cart.dataset.id)
         editMode = true; // after edit is done or cancled it must returnt to false
-        fillFormForEdit(cart.dataset.id);
+        fillFormForEdit(editPlayerId);
         // let playerId = card.dataset.id;
         // let player = playersArray.find(player => player.id == playerId);
         // const playerData = playersArray.find(player => player.id === playerId);
@@ -1025,10 +1037,28 @@ listeDesCartes.forEach(cart => {
 });
 
 function fillFormForEdit(id) {
-    playerEditing = playersArray[id];
+    playerEditing = JSON.parse(localStorage.getItem('players')).players.find(p => p.id === id);
     const playerForm = document.querySelector('#Addplayer-form');
-    console.log(id);
-    console.log(playerForm.querySelector('#Addplayer-form'));
+    console.log(playerEditing);
 
+    fullNameInput.value = playerEditing.name;
+    photoInput.value = photo;
+    positionInput.value = playerEditing.position;
+    nationalityInput.value = playerEditing.nationality;
+    flagInput.value = playerEditing.flag;
+    clubInput.value = playerEditing.club;
+    logoInput.value = playerEditing.logo;
+    ratingInput.value = playerEditing.rating;
+    divingInput.value = playerEditing.diving;
+    handlingInput.value = playerEditing.handling;
+    kickingInput.value = playerEditing.kicking;
+    reflexesInput.value= playerEditing.reflexes;
+    speedInput.value = playerEditing.speed;
+    positioningInput.value = playerEditing.positioning;
+    paceInput.value = playerEditing.pace;
+    shootingInput.value= playerEditing.shooting;
+    passingInput.value = playerEditing.passing;
+    dribblingInput.value = playerEditing.dribbling;
+    defendingInput.value= playerEditing.defending;
+    physicalInput.value = playerEditing.physical;
 }
-

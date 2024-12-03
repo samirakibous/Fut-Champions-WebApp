@@ -802,7 +802,7 @@
 
         <!----------------------Le formulaire pour ajouter un joueur-------------------------->
         <div class="addFrmContainer hidden  fixed inset-0  bg-black bg-opacity-50 flex items-center justify-center">
-            <form id="Addplayer-form" class="bg-[#3b3b3b] shadow-md rounded  px-8 pt-6 pb-8 max-h-[90vh] overflow-scroll scrollbar-hidden w-11/12 lg:w-1/2">
+            <form id="Addplayer-form" class="bg-[#3b3b3b] shadow-md rounded  px-8 pt-6 pb-8 max-h-[90vh] overflow-y-auto scrollbar-hidden w-11/12 lg:w-1/2">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="form-control">
                         <label class="text-white font-bold" for="Full-Name">Full Name</label>
@@ -942,10 +942,10 @@
                     </div>
                     <!------------------------------------------------------------->
                     <div class="flex gap-5 ">
-                        <button class="bg-blue-500 text-white px-4 py-1 rounded" id="addP"
+                        <button class="bg-black rounded- text-white px-4 py-1 hover:bg-green-800" id="addP"
                             onclick="if(validateForm()) ajouterJoueur(event);">Ajouter</button>
                             <button type="button" id="delete-player" class="bg-red-500 hidden">Supprimer</button>
-                        <button class="bg-red-500 text-white px-4 py-1 rounded" id="annuler">Anuler</button>
+                        <button class=" border border-green-800 text-white px-4 py-1 rounded hover:bg-green-800" id="annuler">Anuler</button>
 
                     </div>
                 </div>
