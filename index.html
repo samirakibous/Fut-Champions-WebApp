@@ -801,23 +801,23 @@
         </div>
 
         <!----------------------Le formulaire pour ajouter un joueur-------------------------->
-        <div class="addFrmContainer hidden  fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <form id="Addplayer-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-11/12 sm:w-3/4 lg:w-1/2">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="addFrmContainer hidden  fixed inset-0  bg-black bg-opacity-50 flex items-center justify-center">
+            <form id="Addplayer-form" class="bg-[#3b3b3b] shadow-md rounded  px-8 pt-6 pb-8 max-h-[90vh] overflow-scroll scrollbar-hidden w-11/12 lg:w-1/2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="form-control">
-                        <label class="text-gray-700 font-bold" for="Full-Name">Full Name</label>
+                        <label class="text-white font-bold" for="Full-Name">Full Name</label>
                         <input type="text" id="Full-Name" placeholder="Enter Full Name" oninput="validateForm()"
-                            class="w-full border rounded p-1">
+                            class="w-full bg-[#696969] border border-black rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control ">
-                        <label class=" text-gray-700 font-bold " for="Photo">Photo </label>
-                        <input type="text" placeholder="Enter Url" id="Photo" class="w-full border rounded p-1">
+                        <label class=" text-white font-bold " for="Photo">Photo </label>
+                        <input type="text" placeholder="Enter Url" id="Photo" class="w-full bg-[#696969] border border-black rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control ">
-                        <label class=" text-gray-700 font-bold " for="Position">Position </label>
-                        <select name="position" id="position" class="w-full border rounded p-1">
+                        <label class=" text-white font-bold " for="Position">Position </label>
+                        <select name="position" id="position" class="text-white w-full border rounded p-1 bg-[#696969] border-black">
                             <option value="RW">RW</option>
                             <option value="ST">ST</option>
                             <option value="LW">LW</option>
@@ -834,110 +834,110 @@
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control ">
-                        <label class=" text-gray-700 font-bold" for="Nationality">Nationality </label>
+                        <label class=" text-white font-bold" for="Nationality">Nationality </label>
                         <input type="text" placeholder="Enter country" id="Nationality"
-                            class="w-full border rounded p-1">
+                            class="w-full border  bg-[#696969] border-black rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control ">
-                        <label class=" text-gray-700 font-bold" for="Flag">Flag </label>
-                        <input type="text" placeholder="Enter Url" id="Flag" class="w-full border rounded p-1">
+                        <label class=" text-white font-bold" for="Flag">Flag </label>
+                        <input type="text" placeholder="Enter Url" id="Flag" class="bg-[#696969] w-full border border-black  rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control">
-                        <label class=" text-gray-700 font-bold" for="Club">Club </label>
-                        <input type="text" placeholder="Enter Club Name" id="Club" class="w-full border rounded p-1">
+                        <label class=" text-white font-bold" for="Club">Club </label>
+                        <input type="text" placeholder="Enter Club Name" id="Club" class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control ">
-                        <label class=" text-gray-700 font-bold" for="Logo">Logo </label>
-                        <input type="text" placeholder="Enter url" id="Logo" class="w-full border rounded p-1">
+                        <label class=" text-white font-bold" for="Logo">Logo </label>
+                        <input type="text" placeholder="Enter url" id="Logo" class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control ">
-                        <label class=" text-gray-700 font-bold" for="Rating">Rating </label>
-                        <input type="text" placeholder="Enter A Number" id="Rating" class="w-full border rounded p-1">
+                        <label class=" text-white font-bold" for="Rating">Rating </label>
+                        <input type="text" placeholder="Enter A Number" id="Rating" class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control non-gk ">
-                        <label class=" text-gray-700 font-bold" for="Pace">Pace </label>
-                        <input type="number" placeholder="Enter A Number" id="Pace" class="w-full border rounded p-1">
+                        <label class=" text-white font-bold" for="Pace">Pace </label>
+                        <input type="number" placeholder="Enter A Number" id="Pace" class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
 
                     <div class="form-control  non-gk ">
-                        <label class=" text-gray-700 font-bold " for="Shooting">Shooting </label>
+                        <label class=" text-white font-bold " for="Shooting">Shooting </label>
                         <input type="number" placeholder="Enter A Number" id="Shooting"
-                            class="w-full border rounded p-1">
+                            class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
 
 
                     <div class="form-control non-gk ">
-                        <label class=" text-gray-700 font-bold " for="Pacing">Pacing </label>
+                        <label class=" text-white font-bold " for="Pacing">Pacing </label>
                         <input type="number" placeholder="Enter A Number" id="Passing"
-                            class="w-full border rounded p-1">
+                            class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control non-gk ">
-                        <label class=" text-gray-700 font-bold " for="Dribbling">Dribbling </label>
+                        <label class=" text-white font-bold " for="Dribbling">Dribbling </label>
                         <input type="number" placeholder="Enter A Number" id="Dribbling"
-                            class="w-full border rounded p-1">
+                            class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control non-gk">
-                        <label class=" text-gray-700 font-bold " for="Defending">Defending </label>
+                        <label class=" text-white font-bold " for="Defending">Defending </label>
                         <input type="number" placeholder="Enter A Number" id="Defending"
-                            class="w-full border rounded p-1">
+                            class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control non-gk ">
-                        <label class=" text-gray-700 font-bold" for="Phisycal">Phisycal </label>
+                        <label class=" text-white font-bold" for="Phisycal">Phisycal </label>
                         <input type="number" placeholder="Enter A Number" id="Phisycal"
-                            class="w-full border rounded p-1">
+                            class="w-full border rounded p-1 bg-[#696969] border-black">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <!---------------------gk---------------------->
                     <div class="form-control specific-gk hidden">
-                        <label class="text-gray-700 font-bold" for="diving">Diving</label>
+                        <label class="text-white font-bold" for="diving">Diving</label>
                         <input type="number" placeholder="Enter Diving Rating" id="diving"
-                            class="w-full border rounded p-1">
+                            class="w-full border rounded p-1 bg-[#696969] border-black">
                         <small class="text-red-500 hidden"></small>
                     </div>
 
                     <div class="form-control specific-gk hidden">
-                        <label class="text-gray-700 font-bold" for="handling">Handling</label>
+                        <label class="text-white font-bold" for="handling">Handling</label>
                         <input type="number" placeholder="Enter Diving Rating" id="handling"
-                            class="w-full border rounded p-1">
+                            class="w-full border rounded p-1 bg-[#696969] border-black">
                         <small class="text-red-500 hidden"></small>
                     </div>
 
                     <div class="form-control specific-gk hidden">
-                        <label class="text-gray-700 font-bold " for="kicking">kicking</label>
+                        <label class="text-white font-bold " for="kicking">kicking</label>
                         <input type="number" placeholder="Enter Diving Rating" id="kicking"
-                            class="w-full border rounded p-1">
+                            class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
 
                     <div class="form-control specific-gk hidden">
-                        <label class="text-gray-700 font-bold" for="Reflexes">Reflexes</label>
+                        <label class="text-white font-bold" for="Reflexes">Reflexes</label>
                         <input type="number" placeholder="Enter Diving Rating" id="reflexes"
-                            class="w-full border rounded p-1">
+                            class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
 
                     <div class="form-control specific-gk hidden">
-                        <label class="text-gray-700 font-bold" for="Speed">Speed</label>
+                        <label class="text-white font-bold" for="Speed">Speed</label>
                         <input type="number" placeholder="Enter Diving Rating" id="speed"
-                            class="w-full border rounded p-1">
+                            class="w-full border rounded p-1 bg-[#696969] border-black">
                         <small class="text-red-500 hidden"></small>
                     </div>
 
 
                     <div class="form-control specific-gk hidden">
-                        <label class="text-gray-700 font-bold" for="Positioning">Positoning</label>
+                        <label class="text-white font-bold" for="Positioning">Positoning</label>
                         <input type="number" placeholder="Enter Diving Rating" id="positioning"
-                            class="w-full border rounded p-1">
+                            class="w-full border rounded p-1 bg-[#696969] border-black">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <!------------------------------------------------------------->

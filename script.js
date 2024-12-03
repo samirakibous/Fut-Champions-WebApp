@@ -478,7 +478,10 @@ closeDivButton.addEventListener('click', () => {
 //=====================le formulaire pour ajouter un joueur============================//
 
 let addFormContainer = document.querySelector('.addFrmContainer');
-
+let annuler=document.getElementById('annuler');
+annuler.addEventListener('click', () => {
+    addFormContainer.classList.add('hidden');
+ });
 function afficherForm() {
     addFormContainer.classList.remove('hidden');
 }
@@ -608,7 +611,7 @@ const passingInput = document.getElementById('Passing');
 const dribblingInput = document.getElementById('Dribbling');
 const defendingInput = document.getElementById('Defending');
 const physicalInput = document.getElementById('Phisycal');
-const formContainer = document.getElementById('Addplayer-form');
+let formContainer = document.getElementById('Addplayer-form');
 
 
 function ajouterJoueur(e) {
@@ -742,13 +745,10 @@ function validateForm() {
     return isValid;
 }
 
-// const annuler=document.getElementById('annuler');
-// annuler.addEventListener('click', () => {
-//   annuler.classList.add('hidden');
-// });
 
 
-//===========================validation=================================
+
+//=========================validation=================================
 let AddplayerForm = document.getElementById('Addplayer-form');
 //=============================search=========================================
 const formations = [

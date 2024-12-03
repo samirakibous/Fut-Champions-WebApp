@@ -6,7 +6,7 @@ module.exports = {
       extend: {
         
         screens: {
-          'sm-plus': '124px', // Point de rupture à 122px
+          // 'sm-plus': '124px', // Point de rupture à 122px
         },
       },
     },
