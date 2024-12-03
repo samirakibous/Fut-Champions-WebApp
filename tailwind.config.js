@@ -5,8 +5,11 @@ module.exports = {
     theme: {
       extend: {
         
-        
+        screens: {
+          'sm-plus': '124px', // Point de rupture à 122px
+        },
       },
     },
+
     plugins: [],
   };

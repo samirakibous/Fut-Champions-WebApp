@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //=============================================//
 let addPlayerButtons = document.querySelectorAll('.butt');//boutons (+) des cartes
-let chosePlayerDiv = document.getElementById('chosePlayerDiv');
+let chosePlayerDiv = document.getElementById('chosePlayerDiv');// div qui contient les cartes des joueuers dans une position
 let closeDivButton = document.getElementById('closeDiv');
 
 closeDivButton.addEventListener('click', () => {
@@ -569,7 +569,7 @@ if (playersArray.length > 0) {
     })
 }
 //======================formulaire==========================
-//afficher ou masquer certains champ de formulaire
+//afficher ou masquer certains champ de 
 const positionSelect = document.getElementById('position');
 const nonGKFields = document.querySelectorAll('.non-gk');
 const specificGKFields = document.querySelectorAll('.specific-gk');
@@ -749,7 +749,8 @@ function validateForm() {
 
 
 //===========================validation=================================
-//======================================================================
+let AddplayerForm = document.getElementById('Addplayer-form');
+//=============================search=========================================
 const formations = [
     {
         formation: "4-4-2",
@@ -866,6 +867,11 @@ function showPlayerInFieldCard(cardId, player) {
     const card = cards[cardId] // hit l id dylha howa nafso l index dylha
 
 
+    // bima anaho kndiro override 3la html dyal l card ra y3ni dak button ghymshi
+    // ooooo aaaaslan click mkhssh tkon 3laaa l button hit mthalan fash l buttona tmshi wykon 3ndna
+    // player fdik lcard moraha bghit nbdl l player kindir
+    // khasni 3wd n clicki 3la l card bash ibano la3ba li ymkn nswappihom
+
 
     card.innerHTML = `
    <img src="src/assets/img/badge_gold.webp" alt="">
@@ -883,34 +889,34 @@ function showPlayerInFieldCard(cardId, player) {
    <!-- name and more -->
    <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
        <p class="text-[8px] lg:text-xs md:text-xs font-bold">${player.name.split(' ')[1]}</p>
-       <div class="flex items-center justify-between w-full">
+       <div class="flex items-center justify-between w-full ">
 
-       <div class="flex flex-col items-center leading-3">
+       <div class=" hidden flex flex-col items-center leading-3 lg:block">
            <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'DIV' : 'PAC'}</span>
            <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.diving : player.pace}</span>
       </div>
 
-       <div class="flex flex-col items-center leading-3">
+       <div class="hidden flex flex-col items-center leading-3 lg:block">
            <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'HND' : 'SHO'}</span>
            <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.handling : player.shooting}</span>
       </div>
 
-       <div class="flex flex-col items-center leading-3">
+       <div class=" hidden flex flex-col items-center leading-3 lg:block">
            <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'KIC' : 'PAS'}</span>
            <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.kicking : player.passing}</span>
       </div>
 
-       <div class="flex flex-col items-center leading-3">
+       <div class="hidden flex flex-col items-center leading-3 lg:block">
            <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'REF' : 'DRI'}</span>
            <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.reflexes : player.dribbling}</span>
       </div>
 
-       <div class="flex flex-col items-center leading-3">
+       <div class="hidden flex flex-col items-center leading-3 lg:block">
            <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'DIV' : 'PAC'}</span>
            <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.diving : player.pace}</span>
       </div>
 
-       <div class="flex flex-col items-center leading-3">
+       <div class="hidden flex flex-col items-center leading-3 lg:block">
            <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'POS' : 'PHY'}</span>
            <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.positioning : player.physical}</span>
       </div>
