@@ -23,7 +23,12 @@
             <header class="bg-black text-white p-4">
                 <div class="container mx-auto flex justify-between items-center">
                     <h1 class="text-2xl font-bold">Ultimate Football Team</h1>
-
+                    <div class="flex justify-normal">
+                        <ul class="flex space-x-4">
+                          <li><a href="index.html" class="hover:text-blue-500">Home</a></li>
+                          <li><a href="squads.html" class="hover:text-blue-500">Squads</a></li>
+                        </ul>
+                      </div>
                 </div>
             </header>
 
@@ -41,9 +46,10 @@
                     <label for="title">Title:</label>
                     <input id="title" type="text" placeholder="Title for your squad"
                         class="border border-[#696969] rounded p-2 bg-[#696969]">
-                    <button id="saveTitle" class="bg-black text-white px-2 py-2 rounded-md hover:bg-green-800">
-                        Save Title
+                    <button id="saveSquad" class="bg-black text-white px-2 py-2 rounded-md hover:bg-green-800">
+                        Save Squad
                     </button>
+
                 </div>
 
 
@@ -52,6 +58,7 @@
 
             <div class="conteneur relative flex flex-col md:flex-row justify-around gap-10">
                 <!-- Terrain -->
+
                 <div class="terrain relative h-fit w-full md:w-6/12  ">
                     <img src="src/assets/img/1137.jpg" alt="Football Pitch" class="w-full">
 
@@ -59,7 +66,7 @@
 
                     <div id="pitch" class="absolute top-0 left-0 h-full w-full">
 
-                        <div class="card -translate-x-1/2  -translate-y-full  absolute w-1/5" >
+                        <div class="card -translate-x-1/2  -translate-y-full  absolute w-1/5">
                             <div class="w-full">
                                 <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
                             </div>
@@ -115,9 +122,9 @@
                                     </div>
                                 </div>
                                 <button
-                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
-                                data-position="GK">
-                                <span class="text-lg">+</span>
+                                    class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                    data-position="GK">
+                                    <span class="text-lg">+</span>
                                 </button>
 
                             </div>
@@ -178,9 +185,9 @@
                                     </div>
                                 </div>
                                 <button
-                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
-                                data-position="GK">
-                                <span class="text-lg">+</span>
+                                    class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                    data-position="GK">
+                                    <span class="text-lg">+</span>
                                 </button>
 
                             </div>
@@ -241,9 +248,9 @@
                                     </div>
                                 </div>
                                 <button
-                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
-                                data-position="GK">
-                                <span class="text-lg">+</span>
+                                    class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                    data-position="GK">
+                                    <span class="text-lg">+</span>
                                 </button>
                             </div>
                         </div>
@@ -303,9 +310,9 @@
                                     </div>
                                 </div>
                                 <button
-                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
-                                data-position="GK">
-                                <span class="text-lg">+</span>
+                                    class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                    data-position="GK">
+                                    <span class="text-lg">+</span>
                                 </button>
                             </div>
                         </div>
@@ -365,72 +372,9 @@
                                     </div>
                                 </div>
                                 <button
-                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
-                                data-position="GK">
-                                <span class="text-lg">+</span>
-                                </button>
-
-                            </div>
-                        </div>
-                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
-                            <div class="w-full">
-                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
-                            </div>
-                            <div class="absolute top-0 left-0 w-full h-full text-black">
-                                <!-- position and number -->
-                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
-                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
-                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
-                                </div>
-                                <!-- image -->
-                                <div
-                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                                    <img src="" id="photo" alt="">
-                                </div>
-                                <!-- name and more -->
-                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
-                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
-                                    <div class="flex items-center justify-between w-full">
-                                        <div class="flex flex-col items-center leading-3">
-                                            <span class="text-[8px] font-medium"></span>
-                                            <span class="text-[10px] font-semibold"></span>
-                                        </div>
-
-                                        <div class="flex flex-col items-center leading-3">
-                                            <span class="text-[8px] font-medium"></span>
-                                            <span class="text-[10px] font-semibold"></span>
-                                        </div>
-
-                                        <div class="flex flex-col items-center leading-3">
-                                            <span class="text-[8px] font-medium"></span>
-                                            <span class="text-[10px] font-semibold"></span>
-                                        </div>
-
-                                        <div class="flex flex-col items-center leading-3">
-                                            <span class="text-[8px] font-medium"></span>
-                                            <span class="text-[10px] font-semibold"></span>
-                                        </div>
-
-                                        <div class="flex flex-col items-center leading-3">
-                                            <span class="text-[8px] font-medium"></span>
-                                            <span class="text-[10px] font-semibold"></span>
-                                        </div>
-
-                                        <div class="flex flex-col items-center leading-3">
-                                            <span class="text-[8px] font-medium"></span>
-                                            <span class="text-[10px] font-semibold"></span>
-                                        </div>
-                                    </div>
-                                    <!-- flags -->
-                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
-                                        <img src="" width="10%" alt="">
-                                        <img src="" width="10%" alt="">
-                                    </div>
-                                </div>
-                                <button
-                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
-                                data-position="GK">
-                                <span class="text-lg">+</span>
+                                    class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                    data-position="GK">
+                                    <span class="text-lg">+</span>
                                 </button>
 
                             </div>
@@ -491,9 +435,9 @@
                                     </div>
                                 </div>
                                 <button
-                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
-                                data-position="GK">
-                                <span class="text-lg">+</span>
+                                    class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                    data-position="GK">
+                                    <span class="text-lg">+</span>
                                 </button>
 
                             </div>
@@ -554,9 +498,9 @@
                                     </div>
                                 </div>
                                 <button
-                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
-                                data-position="GK">
-                                <span class="text-lg">+</span>
+                                    class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                    data-position="GK">
+                                    <span class="text-lg">+</span>
                                 </button>
 
                             </div>
@@ -617,9 +561,9 @@
                                     </div>
                                 </div>
                                 <button
-                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
-                                data-position="GK">
-                                <span class="text-lg">+</span>
+                                    class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                    data-position="GK">
+                                    <span class="text-lg">+</span>
                                 </button>
 
                             </div>
@@ -680,9 +624,9 @@
                                     </div>
                                 </div>
                                 <button
-                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
-                                data-position="GK">
-                                <span class="text-lg">+</span>
+                                    class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                    data-position="GK">
+                                    <span class="text-lg">+</span>
                                 </button>
 
                             </div>
@@ -743,9 +687,72 @@
                                     </div>
                                 </div>
                                 <button
-                                class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
-                                data-position="GK">
-                                <span class="text-lg">+</span>
+                                    class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                    data-position="GK">
+                                    <span class="text-lg">+</span>
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="card -translate-x-1/2 -translate-y-full  absolute w-1/5">
+                            <div class="w-full">
+                                <img src=".\src\assets\img\badge_gold.webp" alt="" class="w-full">
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-full text-black">
+                                <!-- position and number -->
+                                <div class="player_positoin flex flex-col absolute top-[25%] left-[15%]">
+                                    <p class="text-[10px] lg:text-sm font-bold" id="ovr"></p>
+                                    <p class="text-[8px] lg:text-xs" id="pos"></p>
+                                </div>
+                                <!-- image -->
+                                <div
+                                    class="player_image w-2/3 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    <img src="" id="photo" alt="">
+                                </div>
+                                <!-- name and more -->
+                                <div class="w-4/5 flex flex-col items-center absolute top-[62%] left-[10%]">
+                                    <p class="text-[8px] lg:text-xs md:text-xs font-bold" id="Lname"></p>
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+
+                                        <div class="flex flex-col items-center leading-3">
+                                            <span class="text-[8px] font-medium"></span>
+                                            <span class="text-[10px] font-semibold"></span>
+                                        </div>
+                                    </div>
+                                    <!-- flags -->
+                                    <div class="palyer_statistics w-full flex flex-row justify-center gap-2">
+                                        <img src="" width="10%" alt="">
+                                        <img src="" width="10%" alt="">
+                                    </div>
+                                </div>
+                                <button
+                                    class="butt absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 border  text-black border-black rounded-full flex items-center justify-center p-2 hover:bg-[#3b3b3b] transition-colors "
+                                    data-position="GK">
+                                    <span class="text-lg">+</span>
                                 </button>
 
                             </div>
@@ -771,38 +778,43 @@
 
                 </div>
 
-                <div id="chosePlayerDiv" class="hidden fixed inset-0 w-fit bg-black bg-opacity-50 flex items-center justify-center">
-                    <div class="bg-gray-800 p-5 rounded shadow-md relative w-11/12  md:w-2/3 lg:w-1/2 xl:w-1/3 2xl:max-w-xl">
+                <div id="chosePlayerDiv"
+                    class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div
+                        class="bg-gray-800 p-5 rounded shadow-md relative w-11/12  md:w-2/3 lg:w-3/4 xl:w-1/3 2xl:max-w-xl">
 
                         <div class="flex flex-col items-center justify-between mb-4 md:flex-row gap-2">
                             <h2 class="text-lg text-white font-bold">Les joueurs disponibles</h2>
                             <div class="flex gap-2">
-                                <button class="viderCarte bg-black text-white font-bold px-3 py-2 rounded" onclick="clearFieldCards()">
+                                <button class="viderCarte bg-black text-white font-bold px-3 py-2 rounded"
+                                    onclick="clearFieldCards()">
                                     Vider la carte
                                 </button>
                                 <button id="closeDiv" class="bg-black text-white p-2 rounded">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M6 18L18 6M6 6l12 12" />
                                     </svg>
                                 </button>
-                                
+
 
                             </div>
                         </div>
-                
+
                         <!-- Conteneur des joueurs -->
-                        <div id="playersContainer" class="max-h-60 overflow-y-auto relative"></div>
+                        <div id="playersContainer" class="max-h-60 overflow-y-auto flex flex-wrap relative"></div>
                     </div>
                 </div>
-                
+
 
             </div>
         </div>
 
         <!----------------------Le formulaire pour ajouter un joueur-------------------------->
         <div class="addFrmContainer hidden  fixed inset-0  bg-black bg-opacity-50 flex items-center justify-center">
-            <form id="Addplayer-form" class="bg-[#3b3b3b] shadow-md rounded  px-8 pt-6 pb-8 max-h-[90vh] overflow-y-auto scrollbar-hidden w-11/12 lg:w-1/2">
+            <form id="Addplayer-form"
+                class="bg-[#3b3b3b] shadow-md rounded  px-8 pt-6 pb-8 max-h-[90vh] overflow-y-auto scrollbar-hidden w-11/12 lg:w-1/2">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="form-control">
                         <label class="text-white font-bold" for="Full-Name">Full Name</label>
@@ -812,12 +824,14 @@
                     </div>
                     <div class="form-control ">
                         <label class=" text-white font-bold " for="Photo">Photo </label>
-                        <input type="text" placeholder="Enter Url" id="Photo" class="w-full bg-[#696969] border border-black rounded p-1">
+                        <input type="text" placeholder="Enter Url" id="Photo"
+                            class="w-full bg-[#696969] border border-black rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control ">
                         <label class=" text-white font-bold " for="Position">Position </label>
-                        <select name="position" id="position" class="text-white w-full border rounded p-1 bg-[#696969] border-black">
+                        <select name="position" id="position"
+                            class="text-white w-full border rounded p-1 bg-[#696969] border-black">
                             <option value="RW">RW</option>
                             <option value="ST">ST</option>
                             <option value="LW">LW</option>
@@ -841,27 +855,32 @@
                     </div>
                     <div class="form-control ">
                         <label class=" text-white font-bold" for="Flag">Flag </label>
-                        <input type="text" placeholder="Enter Url" id="Flag" class="bg-[#696969] w-full border border-black  rounded p-1">
+                        <input type="text" placeholder="Enter Url" id="Flag"
+                            class="bg-[#696969] w-full border border-black  rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control">
                         <label class=" text-white font-bold" for="Club">Club </label>
-                        <input type="text" placeholder="Enter Club Name" id="Club" class="bg-[#696969] border-black w-full border rounded p-1">
+                        <input type="text" placeholder="Enter Club Name" id="Club"
+                            class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control ">
                         <label class=" text-white font-bold" for="Logo">Logo </label>
-                        <input type="text" placeholder="Enter url" id="Logo" class="bg-[#696969] border-black w-full border rounded p-1">
+                        <input type="text" placeholder="Enter url" id="Logo"
+                            class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control ">
                         <label class=" text-white font-bold" for="Rating">Rating </label>
-                        <input type="text" placeholder="Enter A Number" id="Rating" class="bg-[#696969] border-black w-full border rounded p-1">
+                        <input type="text" placeholder="Enter A Number" id="Rating"
+                            class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
                     <div class="form-control non-gk ">
                         <label class=" text-white font-bold" for="Pace">Pace </label>
-                        <input type="number" placeholder="Enter A Number" id="Pace" class="bg-[#696969] border-black w-full border rounded p-1">
+                        <input type="number" placeholder="Enter A Number" id="Pace"
+                            class="bg-[#696969] border-black w-full border rounded p-1">
                         <small class="text-red-500 hidden"></small>
                     </div>
 
@@ -944,8 +963,9 @@
                     <div class="flex gap-5 ">
                         <button class="bg-black rounded- text-white px-4 py-1 hover:bg-green-800" id="addP"
                             onclick="if(validateForm()) ajouterJoueur(event);">Ajouter</button>
-                            <button type="button" id="delete-player" class="bg-red-500 hidden">Supprimer</button>
-                        <button class=" border border-green-800 text-white px-4 py-1 rounded hover:bg-green-800" id="annuler">Anuler</button>
+                        <button type="button" id="deletePlayer" class="bg-red-500 hidden">Supprimer</button>
+                        <button class=" border border-green-800 text-white px-4 py-1 rounded hover:bg-green-800"
+                            id="annuler">Anuler</button>
 
                     </div>
                 </div>

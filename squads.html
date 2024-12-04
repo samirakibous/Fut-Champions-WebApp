@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Build and manage your custom football team with dynamic formations, player stats, chemistry calculations, and more. An interactive Ultimate Team management app.">
+    <meta name="keywords"
+        content="football team, team management, player stats, chemistry calculation, formations, ultimate team, dynamic app">
+    <meta name="author" content="FI">
+    <title>Pitch</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="tailwind.js"></script>
+
+
+</head>
+
+<body>
+    <div class="squadsContainer  min-w-full">
+        <header class="bg-black text-white p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-2xl font-bold">Ultimate Football Team</h1>
+                      <button id="menu-toggle" class="block md:hidden focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                      </button>
+                      <ul id="menu" class="hidden md:flex space-x-4">
+                        <li><a href="index.html" class="hover:text-blue-500">Home</a></li>
+                        <li><a href="squads.html" class="hover:text-blue-500">Squads</a></li>
+                      </ul>
+                    </div>
+                 
+                  
+            </div>
+         </header>
+    </div>
+ <div id="squadsDiv" class="bg-[#3b3b3b] h-screen">
+  <div class="squadContainer">
+    <h1>squad title</h1>
+    <div class="flex flex-col">
+        <img src="src/assets/img/badge_gold.webp">
+        <p>nom</p>
+    </div>
+ </div>
+
+ <script>
+    //=================================================
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    toggleButton.addEventListener('click', function () {
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        menu.classList.add('flex', 'flex-col', 'space-y-4');
+      } else {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex', 'flex-col', 'space-y-4');
+      }
+    });
+  });
+
+
+
+    const squadsToshow=JSON.parse(localStorage.getItem('squads'));
+    const  squadsDiv=document.getElementById('squadsDiv');
+
+    console.log(squadsToshow);
+    
+    if (squadsToshow) {
+    squadsDiv.innerHTML = ''; // Vider le conteneur avant de le remplir
+    squadsToshow.squads.forEach(squad => {
+        let playersHTML = squad.fieldPlayers.map(player => `
+            <div class="flex flex-col w-10 h-10 items-center">
+                <img src="${player.player.photo}" alt="${player.player.name}" class="w-full h-auto">
+                <p>${player.player.name}</p>
+            </div>
+        `).join('');
+        
+        squadsDiv.innerHTML += `
+            <div class="squadContainer">
+                <h1>${squad.titleValue}</h1>
+                <div class="flex flex-wrap gap-4">
+                    ${playersHTML}
+                </div>
+            </div>
+        `;
+    });
+}
+ </script>
+</body>
+
+</html>

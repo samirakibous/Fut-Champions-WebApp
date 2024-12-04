@@ -445,7 +445,7 @@ if (!localStorage.getItem('players')) {
 //=============================================//
 
 const titleContainer = document.getElementById('squadTitle');
-const saveButton = document.getElementById('saveTitle');
+const saveButton = document.getElementById('saveSquad');
 const titre = document.getElementById('title');
 
 function afficherTitre(titleValue) {
@@ -460,15 +460,15 @@ function afficherTitre(titleValue) {
     titleContainer.appendChild(titleElement);
 }
 
-saveButton.addEventListener('click', function () {
-    const titleValue = titre.value.trim();
-    if (titleValue) {
-        localStorage.setItem('squadTitle', titleValue);
-        afficherTitre(titleValue);
-    } else {
-        alert("Veuillez entrer un titre valide.");
-    }
-});
+// saveButton.addEventListener('click', function () {
+//     const titleValue = titre.value.trim();
+//     if (titleValue) {
+//         localStorage.setItem('squadTitle', titleValue);
+//         afficherTitre(titleValue);
+//     } else {
+//         alert("Veuillez entrer un titre valide.");
+//     }
+// });
 
 document.addEventListener('DOMContentLoaded', function () {
     const savedTitle = localStorage.getItem('squadTitle');
@@ -502,14 +502,17 @@ function afficherForm() {
 const listcards = document.querySelector('.cards');
 
 
-function populatePlayers(target, array) {
+function populatePlayers(target, array, extraClasses = '') {
     target.innerHTML = '';
 
     array.forEach(player => {
 
         const div = document.createElement('div');
         div.dataset.id = player.id;
+
+        div.className = extraClasses;
         div.classList.add('relative', 'text-black', 'cart');
+
 
 
         div.innerHTML = `
@@ -576,11 +579,7 @@ if (playersArray.length > 0) {
     populatePlayers(listcards, playersArray)
     let playersListCards = listcards.querySelectorAll('.cart')
 
-    playersListCards.forEach(card => {
-        card.addEventListener('click', () => {
-            //
-        })
-    })
+    
 }
 //======================formulaire==========================
 //afficher ou masquer certains champ de 
@@ -660,7 +659,6 @@ function ajouterJoueur(e) {
        let  oldPl = playersArray.find(p => p.id === editPlayerId);
       playersArray[playersArray.indexOf(oldPl)] =newPlayer;
         localStorage.setItem('players', JSON.stringify({ players: playersArray }));
-        populatePlayers(document.querySelector('.cards'), playersArray);
         editMode = false; // whene editing is done
     } else {
 
@@ -670,6 +668,7 @@ function ajouterJoueur(e) {
 
     }
     populatePlayers(document.querySelector('.cards'), playersArray);
+    updateCardsEvent();
     // Vider le formulaire pour une nouvelle saisie
     formContainer.reset();
     addFormContainer.classList.add('hidden');
@@ -832,8 +831,8 @@ function populatePlayersByPos(pos) {
     let filteredPlayers = playersArray.filter(player => {
         return player.position.toLowerCase() === pos &&
             !fieldPlayers.find(fPlayer => fPlayer.player.id == player.id)
-    });
-    populatePlayers(chosePlayerDiv.querySelector('#playersContainer'), filteredPlayers);
+    });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+    populatePlayers(chosePlayerDiv.querySelector('#playersContainer'), filteredPlayers, 'w-44');
     let formCards = chosePlayerDiv.querySelectorAll('.cart')
     if (!formCards) {
         return;
@@ -871,6 +870,7 @@ function showPlayerInFieldCard(cardId, player) {
 
 
     fieldPlayers.push({ cardId, player });
+    console.log(fieldPlayers);
 
     // njibo ga3 l cards li kaynin f terrain;
     const cards = document.querySelectorAll(".card");
@@ -1023,7 +1023,8 @@ function clearFieldCards() {
 }
 
 //====================================================
-const listeDesCartes = document.querySelectorAll('.cart');
+function updateCardsEvent(){
+    const listeDesCartes = document.querySelectorAll('.cart');
 
 listeDesCartes.forEach(cart => {
     cart.addEventListener('click', () => {
@@ -1031,11 +1032,16 @@ listeDesCartes.forEach(cart => {
         editPlayerId = parseInt(cart.dataset.id)
         editMode = true; // after edit is done or cancled it must returnt to false
         fillFormForEdit(editPlayerId);
+        toggleDeleteButton(editMode);
+
         // let playerId = card.dataset.id;
         // let player = playersArray.find(player => player.id == playerId);
         // const playerData = playersArray.find(player => player.id === playerId);
     });
 });
+}
+
+updateCardsEvent()
 
 function fillFormForEdit(id) {
     playerEditing = JSON.parse(localStorage.getItem('players')).players.find(p => p.id === id);
@@ -1063,3 +1069,49 @@ function fillFormForEdit(id) {
     defendingInput.value= playerEditing.defending;
     physicalInput.value = playerEditing.physical;
 }
+const deleteButton = document.getElementById('deletePlayer');
+
+function toggleDeleteButton(show) {
+    if (show) {
+        deleteButton.classList.remove('hidden');
+    } else {
+        deleteButton.classList.add('hidden');
+    }
+}
+deleteButton.addEventListener('click', () => {
+    playersArray = playersArray.filter(player => player.id !== editPlayerId);
+    localStorage.setItem('players', JSON.stringify({ players: playersArray }));
+    populatePlayers(document.querySelector('.cards'), playersArray);
+    addFormContainer.classList.add('hidden');
+    editMode = false;
+    updateCardsEvent();
+});
+
+
+//=============================================================
+
+
+
+const addSquadButton = document.getElementById('saveSquad');
+
+addSquadButton.addEventListener('click', function () {
+    let squadsData = JSON.parse(localStorage.getItem("squads")) || { squads: [] };
+    let squads = squadsData.squads;
+
+    console.log(squads);
+    console.log('clicked');
+
+    const titleValue = titre.value.trim();
+    if (titleValue) {
+        localStorage.setItem('squadTitle', titleValue);
+        afficherTitre(titleValue);
+    } else {
+        alert("Veuillez entrer un titre valide.");
+        return;
+    }
+
+    if (titleValue && fieldPlayers.length !== 0) {
+        squads.push({ titleValue, fieldPlayers });
+        localStorage.setItem('squads', JSON.stringify({ squads }));
+    }
+});
