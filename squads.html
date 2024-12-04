@@ -47,48 +47,46 @@
 
  <script>
     //=================================================
-  document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.getElementById('menu-toggle');
     const menu = document.getElementById('menu');
 
     toggleButton.addEventListener('click', function () {
-      if (menu.classList.contains('hidden')) {
-        menu.classList.remove('hidden');
-        menu.classList.add('flex', 'flex-col', 'space-y-4');
-      } else {
-        menu.classList.add('hidden');
-        menu.classList.remove('flex', 'flex-col', 'space-y-4');
-      }
+        if (menu.classList.contains('hidden')) {
+            menu.classList.remove('hidden');
+            menu.classList.add('flex', 'flex-col', 'space-y-4');
+        } else {
+            menu.classList.add('hidden');
+            menu.classList.remove('flex', 'flex-col', 'space-y-4');
+        }
     });
-  });
 
+    const squadsToshow = JSON.parse(localStorage.getItem('squads'));
+    const squadsDiv = document.getElementById('squadsDiv');
 
-
-    const squadsToshow=JSON.parse(localStorage.getItem('squads'));
-    const  squadsDiv=document.getElementById('squadsDiv');
-
-    console.log(squadsToshow);
-    
     if (squadsToshow) {
-    squadsDiv.innerHTML = ''; // Vider le conteneur avant de le remplir
-    squadsToshow.squads.forEach(squad => {
-        let playersHTML = squad.fieldPlayers.map(player => `
-            <div class="flex flex-col w-10 h-10 items-center">
-                <img src="${player.player.photo}" alt="${player.player.name}" class="w-full h-auto">
-                <p>${player.player.name}</p>
-            </div>
-        `).join('');
-        
-        squadsDiv.innerHTML += `
-            <div class="squadContainer">
-                <h1>${squad.titleValue}</h1>
-                <div class="flex flex-wrap gap-4">
-                    ${playersHTML}
+        squadsDiv.innerHTML = ''; // Vider le conteneur avant de le remplir
+        squadsToshow.squads.forEach(squad => {
+            let playersHTML = squad.fieldPlayers.map(player => `
+                <div class="flex flex-col items-center">
+                    <img src="${player.player.photo}" alt="${player.player.name}" class="w-16 h-16 rounded-full">
+                    <p class="mt-2 text-sm font-medium text-gray-700">${player.player.name}</p>
                 </div>
-            </div>
-        `;
-    });
-}
+            `).join('');
+            
+            squadsDiv.innerHTML += `
+                <div class="bg-white rounded-lg shadow-md p-4 mb-6 border border-gray-200">
+                    <h1 class="text-xl font-bold mb-4">${squad.titleValue}</h1>
+                    <h1 class="text-xl fot-bold mb-4">${squad.formation}</h1>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        ${playersHTML}
+                    </div>
+                </div>
+            `;
+        });
+    }
+});
+
  </script>
 </body>
 

@@ -1049,7 +1049,7 @@ function fillFormForEdit(id) {
     console.log(playerEditing);
 
     fullNameInput.value = playerEditing.name;
-    photoInput.value = photo;
+    photoInput.value = playerEditing.photo;
     positionInput.value = playerEditing.position;
     nationalityInput.value = playerEditing.nationality;
     flagInput.value = playerEditing.flag;
@@ -1093,7 +1093,6 @@ deleteButton.addEventListener('click', () => {
 
 
 const addSquadButton = document.getElementById('saveSquad');
-
 addSquadButton.addEventListener('click', function () {
     let squadsData = JSON.parse(localStorage.getItem("squads")) || { squads: [] };
     let squads = squadsData.squads;
@@ -1102,6 +1101,9 @@ addSquadButton.addEventListener('click', function () {
     console.log('clicked');
 
     const titleValue = titre.value.trim();
+    const selectedFormation = formationSelect.value;
+    console.log(selectedFormation);
+    
     if (titleValue) {
         localStorage.setItem('squadTitle', titleValue);
         afficherTitre(titleValue);
@@ -1111,7 +1113,7 @@ addSquadButton.addEventListener('click', function () {
     }
 
     if (titleValue && fieldPlayers.length !== 0) {
-        squads.push({ titleValue, fieldPlayers });
+        squads.push({ titleValue, fieldPlayers, formation: selectedFormation });
         localStorage.setItem('squads', JSON.stringify({ squads }));
     }
 });
