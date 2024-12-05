@@ -22,7 +22,7 @@ const initialPlayers = {
         {
             "name": "Cristiano Ronaldo",
             "photo": "https://cdn.sofifa.net/players/020/801/25_120.png",
-            "position": "CAM",
+            "position": "ST",
             "nationality": "Portugal",
             "flag": "https://cdn.sofifa.net/flags/pt.png",
             "club": "Al Nassr",
@@ -294,7 +294,7 @@ const initialPlayers = {
         {
             "name": "Bruno Fernandes",
             "photo": "https://cdn.sofifa.net/players/212/198/25_120.png",
-            "position": "CDM",
+            "position": "CM",
             "nationality": "Portugal",
             "flag": "https://cdn.sofifa.net/flags/pt.png",
             "club": "Manchester United",
