@@ -22,7 +22,7 @@ const initialPlayers = {
         {
             "name": "Cristiano Ronaldo",
             "photo": "https://cdn.sofifa.net/players/020/801/25_120.png",
-            "position": "ST",
+            "position": "CAM",
             "nationality": "Portugal",
             "flag": "https://cdn.sofifa.net/flags/pt.png",
             "club": "Al Nassr",
@@ -294,7 +294,7 @@ const initialPlayers = {
         {
             "name": "Bruno Fernandes",
             "photo": "https://cdn.sofifa.net/players/212/198/25_120.png",
-            "position": "CM",
+            "position": "CDM",
             "nationality": "Portugal",
             "flag": "https://cdn.sofifa.net/flags/pt.png",
             "club": "Manchester United",
@@ -426,18 +426,15 @@ const initialPlayers = {
 
 //charger les joueurs depuis localStorage ou initialiser avec les données intégrées
 let playersArray = JSON.parse(localStorage.getItem('players'))?.players || initialPlayers.players;
-console.log(playersArray);
 
 
-
-
+//sauvegarder les données si elles n'existent pas déjà
 initialPlayers.players.forEach((player, inx) => player.id = inx);
 function addIds() {
     initialPlayers.players.forEach((player, inx) => player.id = inx);
 }
 
 
-//sauvegarder les données si elles n'existent pas déjà
 if (!localStorage.getItem('players')) {
     addIds();
     localStorage.setItem('players', JSON.stringify({ players: initialPlayers.players }));
@@ -536,18 +533,18 @@ function populatePlayers(target, array, extraClasses = '') {
        <div class="flex items-center justify-between w-full">
 
        <div class="flex flex-col items-center leading-3">
-           <span class="text-[6px] font-medium"> ${player.position === 'GK' ? 'DIV' : 'PAC'}</span>
-           <span class="text-[8px] font-semibold"> ${player.position === 'GK' ? player.diving : player.pace}</span>
+           <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'DIV' : 'PAC'}</span>
+           <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.diving : player.pace}</span>
       </div>
 
        <div class="flex flex-col items-center leading-3">
-           <span class="text-[6px] font-medium"> ${player.position === 'GK' ? 'HND' : 'SHO'}</span>
-           <span class="text-[8px] font-semibold"> ${player.position === 'GK' ? player.handling : player.shooting}</span>
+           <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'HND' : 'SHO'}</span>
+           <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.handling : player.shooting}</span>
       </div>
 
        <div class="flex flex-col items-center leading-3">
-           <span class="text-[6px] font-medium"> ${player.position === 'GK' ? 'KIC' : 'PAS'}</span>
-           <span class="text-[8px] font-semibold"> ${player.position === 'GK' ? player.kicking : player.passing}</span>
+           <span class="text-[8px] font-medium"> ${player.position === 'GK' ? 'KIC' : 'PAS'}</span>
+           <span class="text-[10px] font-semibold"> ${player.position === 'GK' ? player.kicking : player.passing}</span>
       </div>
 
        <div class="flex flex-col items-center leading-3">
@@ -845,6 +842,16 @@ function populatePlayersByPos(pos) {
             let playerId = card.dataset.id;
             let player = playersArray.find(player => player.id == playerId)
 
+            // playersArray.slice(players.indexOf(player), 1);
+            // fieldPlayers.push(player);
+            // populatePlayers(cards, playersArray)
+
+
+
+            // maghatjib waaaaaalooo hiya hna li n3tiwha kolshi
+            // argument lwl: howa index/id dyal card fdiv dyal terrain
+            // argument tani: howa player obj dyal player li hydna mn list, fih ga3 data dyal
+            // dk lplayer bash nbynoh fdik l card li f terrain
             showPlayerInFieldCard(selectetFieldCard, player);
             chosePlayerDiv.classList.add('hidden')
         })
@@ -854,7 +861,7 @@ function populatePlayersByPos(pos) {
 function showPlayerInFieldCard(cardId, player) {
 
     let dejaPlayer = fieldPlayers.find(fPlayer => fPlayer.cardId == cardId);
-    // si la carte est déja remplie
+    // katkhdm fash knlaw dik card deja 3mra
     if (dejaPlayer) {
         fieldPlayers = fieldPlayers.filter(fPlayer => fPlayer.cardId != cardId);
     }
@@ -865,11 +872,17 @@ function showPlayerInFieldCard(cardId, player) {
     fieldPlayers.push({ cardId, player });
     console.log(fieldPlayers);
 
-    //les cartes dans terrain
+    // njibo ga3 l cards li kaynin f terrain;
     const cards = document.querySelectorAll(".card");
 
     //njbdo hdik l card li clickina 3liha faalwl bash bnt dik l form;
     const card = cards[cardId] // hit l id dylha howa nafso l index dylha
+
+
+    // bima anaho kndiro override 3la html dyal l card ra y3ni dak button ghymshi
+    // ooooo aaaaslan click mkhssh tkon 3laaa l button hit mthalan fash l buttona tmshi wykon 3ndna
+    // player fdik lcard moraha bghit nbdl l player kindir
+    // khasni 3wd n clicki 3la l card bash ibano la3ba li ymkn nswappihom
 
 
     card.innerHTML = `
